@@ -1,0 +1,19 @@
+{
+  "name": "bixie/portfolio",
+  "type": "pagekit-extension",
+  "version": "0.8.0",
+  "title": "Portfolio",
+  "description": "Create a beautiful portfolio in your Pagekit site",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bixie",
+      "email": "info@bixie.org",
+      "homepage": "http://portfolio.bixie.org"
+    }
+  ],
+  "extra": {
+    "icon": "icon.svg",
+    "scripts": "scripts.php"
+  }
+}
