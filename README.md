@@ -1,6 +1,6 @@
 # Pagekit Portfolio
 
-Bixie's Portfolio for Pagekit lets you create a beautiful portfolio in your site.
+Bixies Portfolio for Pagekit lets you create a beautiful portfolio in your site.
 
 Info and demo: [http://portfolio.bixie.org](http://portfolio.bixie.org).
 
