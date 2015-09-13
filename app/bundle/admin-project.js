@@ -51,7 +51,8 @@
 	            tags: [],
 	            project: {
 	                data: {
-	                }
+	                },
+	                tags: []
 	            }
 	        }, window.$data);
 	    },
