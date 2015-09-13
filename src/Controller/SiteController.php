@@ -23,25 +23,14 @@ class SiteController
 
     /**
      * @Route("/")
-     * @Route("/page/{page}", name="page", requirements={"page" = "\d+"})
      */
-    public function indexAction($page = 1)
+    public function indexAction()
     {
         if (!App::node()->hasAccess(App::user())) {
             App::abort(403, __('Insufficient User Rights.'));
         }
 
-        $query = Project::where(['date < ?'], [new \DateTime]);
-
-        if (!$limit = $this->portfolio->config('projects_per_page')) {
-            $limit = 10;
-        }
-
-        $count = $query->count('id');
-        $total = ceil($count / $limit);
-        $page = max(1, min($total, $page));
-
-        $query->offset(($page - 1) * $limit)->limit($limit)->orderBy('date', 'DESC');
+        $query = Project::where(['date < ?'], [new \DateTime])->orderBy('date', 'DESC');
 
 		$portfolio_text = '';
 		if ($this->portfolio->config('portfolio_text')) {
@@ -62,9 +51,7 @@ class SiteController
       		'portfolio' => $this->portfolio,
 			'config' => $this->portfolio->config(),
 			'portfolio_text' => $portfolio_text,
-            'projects' => $projects,
-            'total' => $total,
-            'page' => $page
+            'projects' => $projects
         ];
     }
 
