@@ -456,6 +456,19 @@
 						</div>
 
 						<div class="uk-form-row">
+							<label for="form-project_tags_align" class="uk-form-label">{{ 'Tags alignment' | trans }}</label>
+
+							<div class="uk-form-controls">
+								<select name="project_tags_align" id="form-project_tags_align" class="uk-form-width-medium"
+										v-model="config.project.tags_align">
+									<option value="">{{ 'Left' | trans }}</option>
+									<option value="uk-flex-right">{{ 'Right' | trans }}</option>
+									<option value="uk-flex-center">{{ 'Center' | trans }}</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="uk-form-row">
 							<label for="form-overlay_title_size" class="uk-form-label">{{ 'Overlay title size' | trans }}</label>
 
 							<div class="uk-form-controls">
@@ -664,7 +677,8 @@
 							<label for="form-date_format" class="uk-form-label">{{ 'Date format' | trans }}</label>
 
 							<div class="uk-form-controls">
-								<select name="date_format" id="form-date_format" class="uk-form-width-small" v-model="config.date_format">
+								<select name="date_format" id="form-date_format" class="uk-form-width-small"
+										v-model="config.date_format">
 									<option value="F Y">{{ 'January 2015' | trans }}</option>
 									<option value="F d Y">{{ 'January 15 2015' | trans }}</option>
 									<option value="d F Y">{{ '15 January 2015' | trans }}</option>
