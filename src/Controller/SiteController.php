@@ -71,6 +71,10 @@ class SiteController
 		if ($this->portfolio->config('portfolio_text')) {
 			$portfolio_text = App::content()->applyPlugins($this->portfolio->config('portfolio_text'), ['markdown' => $project->get('markdown')]);;
 		}
+
+		$previous = Project::getPrevious($project);
+		$next = Project::getNext($project);
+
         return [
             '$view' => [
                 'title' => __($project->title),
@@ -78,6 +82,8 @@ class SiteController
             ],
             'portfolio' => $this->portfolio,
 			'config' => $this->portfolio->config(),
+			'previous' => $previous,
+			'next' => $next,
 			'project' => $project
         ];
     }

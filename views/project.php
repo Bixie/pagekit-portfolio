@@ -4,6 +4,8 @@
  * @var array $config
  * @var Pagekit\Module\Module $portfolio
  * @var Pagekit\Portfolio\Model\Project $project
+ * @var Pagekit\Portfolio\Model\Project|null $previous
+ * @var Pagekit\Portfolio\Model\Project|null $next
  */
 
 $view->script('portfolio', 'portfolio:app/bundle/portfolio.js', ['uikit-lightbox']);
@@ -83,6 +85,19 @@ $grid .= $config['project']['columns_xlarge'] ? ' uk-grid-width-xlarge-1-'.$conf
 			</div>
 		<?php endforeach; ?>
 	</div>
+
+	<?php if ($next || $previous) : ?>
+		<ul class="uk-pagination">
+		<?php if ($previous) : ?>
+			<li class="uk-pagination-previous"><a href="<?= $app->url('@portfolio/id', ['id' => $previous->id]) ?>">
+					<i class="uk-icon-arrow-left uk-margin-small-right"></i><?= $previous->title ?></a></li>
+		<?php endif; ?>
+			<?php if ($next) : ?>
+			<li class="uk-pagination-next"><a href="<?= $app->url('@portfolio/id', ['id' => $next->id]) ?>">
+					<?= $next->title ?><i class="uk-icon-arrow-right uk-margin-small-left"></i></a></li>
+		<?php endif; ?>
+		</ul>
+	<?php endif; ?>
 
 </article>
 

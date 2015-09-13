@@ -61,6 +61,13 @@ class Project implements \JsonSerializable
 		return $tags;
 	}
 
+	public static function getPrevious ($project) {
+		return self::where(['date > ?'], [$project->date])->orderBy('date', 'DESC')->first();
+	}
+
+	public static function getNext ($project) {
+		return self::where(['date < ?'], [$project->date])->orderBy('date', 'DESC')->first();
+	}
     /**
      * {@inheritdoc}
      */
