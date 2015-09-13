@@ -447,7 +447,7 @@
 							<label for="form-project_image_align" class="uk-form-label">{{ 'Image align' | trans }}</label>
 
 							<div class="uk-form-controls">
-								<select name="project_image_align" id="form-project_image_align" class="uk-form-width-small"
+								<select name="project_image_align" id="form-project_image_align" class="uk-form-width-medium"
 										v-model="config.project.image_align">
 									<option value="left">{{ 'Left' | trans }}</option>
 									<option value="right">{{ 'Right' | trans }}</option>
@@ -464,6 +464,19 @@
 									<option value="">{{ 'Left' | trans }}</option>
 									<option value="uk-flex-right">{{ 'Right' | trans }}</option>
 									<option value="uk-flex-center">{{ 'Center' | trans }}</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="uk-form-row">
+							<label for="form-project_show_navigation" class="uk-form-label">{{ 'Show navigation' | trans }}</label>
+
+							<div class="uk-form-controls">
+								<select name="project_show_navigation" id="form-project_show_navigation" class="uk-form-width-medium"
+										v-model="config.project.show_navigation">
+									<option value="">{{ 'None' | trans }}</option>
+									<option value="top">{{ 'Top' | trans }}</option>
+									<option value="bottom">{{ 'Bottom' | trans }}</option>
 								</select>
 							</div>
 						</div>

@@ -21,6 +21,19 @@ $grid .= $config['project']['columns_xlarge'] ? ' uk-grid-width-xlarge-1-'.$conf
 ?>
 <article id="portfolio-project">
 
+	<?php if ($config['project']['show_navigation'] == 'top' && $next || $previous) : ?>
+		<ul class="uk-pagination">
+			<?php if ($previous) : ?>
+				<li class="uk-pagination-previous"><a href="<?= $app->url('@portfolio/id', ['id' => $previous->id]) ?>">
+						<i class="uk-icon-arrow-left uk-margin-small-right"></i><?= $previous->title ?></a></li>
+			<?php endif; ?>
+			<?php if ($next) : ?>
+				<li class="uk-pagination-next"><a href="<?= $app->url('@portfolio/id', ['id' => $next->id]) ?>">
+						<?= $next->title ?><i class="uk-icon-arrow-right uk-margin-small-left"></i></a></li>
+			<?php endif; ?>
+		</ul>
+	<?php endif; ?>
+
 	<h1 class="uk-article-title"><?= $project->title ?></h1>
 
 	<?php if (!empty($project->subtitle)) : ?>
@@ -86,7 +99,7 @@ $grid .= $config['project']['columns_xlarge'] ? ' uk-grid-width-xlarge-1-'.$conf
 		<?php endforeach; ?>
 	</div>
 
-	<?php if ($next || $previous) : ?>
+	<?php if ($config['project']['show_navigation'] == 'bottom' && $next || $previous) : ?>
 		<ul class="uk-pagination">
 		<?php if ($previous) : ?>
 			<li class="uk-pagination-previous"><a href="<?= $app->url('@portfolio/id', ['id' => $previous->id]) ?>">

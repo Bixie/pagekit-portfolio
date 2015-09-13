@@ -131,6 +131,7 @@ return [
 		'project' => [
 			'image_align' => 'left',
 			'tags_align' => 'uk-flex-center',
+			'show_navigation' => 'bottom',
 			'overlay_title_size' => 'uk-h3',
 			'overlay' => 'uk-overlay uk-overlay-hover',
 			'overlay_position' => '',
