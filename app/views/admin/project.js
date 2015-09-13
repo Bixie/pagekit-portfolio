@@ -5,7 +5,8 @@ module.exports = Vue.extend({
             tags: [],
             project: {
                 data: {
-                }
+                },
+                tags: []
             }
         }, window.$data);
     },
