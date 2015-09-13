@@ -45,13 +45,13 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(14)
-	module.exports.template = __webpack_require__(15)
+	module.exports = __webpack_require__(18)
+	module.exports.template = __webpack_require__(19)
 
 
 /***/ },
 
-/***/ 14:
+/***/ 18:
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -70,7 +70,7 @@
 
 /***/ },
 
-/***/ 15:
+/***/ 19:
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"uk-form-horizontal\">\n\n        <partial name=\"settings\"></partial>\n\n    </div>";

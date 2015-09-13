@@ -1,5 +1,7 @@
 <?php
 
+use Pagekit\Portfolio\Event\RouteListener;
+
 return [
 
 	'name' => 'portfolio',
@@ -35,7 +37,8 @@ return [
 		'/api/portfolio' => [
 			'name' => '@portfolio/api',
 			'controller' => [
-				'Pagekit\\Portfolio\\Controller\\ProjectApiController'
+				'Pagekit\\Portfolio\\Controller\\ProjectApiController',
+				'Pagekit\\Portfolio\\Controller\\ImageApiController'
 			]
 		]
 
@@ -90,35 +93,73 @@ return [
 	'settings' => '@portfolio/settings',
 
 	'config' => [
-		'portfolio' => [
-			'show_title' => true,
-			'show_sub' => true,
+		'portfolio_title' => 'My portfolio',
+		'portfolio_text' => '<p>This is an overview of my latest projects.</p>',
+		'portfolio_image' => '',
+		'projects_per_page' => 20,
+		'portfolio_image_align' => 'left',
+		'columns' => 1,
+		'columns_small' => 2,
+		'columns_medium' => '',
+		'columns_large' => 4,
+		'columns_xlarge' => 6,
+		'columns_gutter' => 20,
+		'filter_tags' => true,
+		'teaser' => [
+			'show_subtitle' => true,
 			'show_intro' => true,
-			'show_content' => false,
-			'show_image' => false,
-			'show_date' => true,
-		],
-		'project' => [
-			'show_title' => true,
-			'show_sub' => true,
-			'show_intro' => true,
-			'show_content' => true,
 			'show_image' => true,
+			'show_client' => true,
+			'show_tags' => true,
 			'show_date' => true,
 			'show_data' => true,
+			'show_readmore' => true,
+			'show_title' => true,
+			'panel_style' => 'uk-panel-box',
+			'panel_align' => '',
+			'tags_align' => 'uk-flex-center',
+			'title_size' => 'uk-h3',
+			'read_more' => 'Read more',
+			'read_more_style' => 'uk-button',
+			'columns' => 1,
+			'columns_small' => 2,
+			'columns_medium' => '',
+			'columns_large' => 4,
+			'columns_xlarge' => 6,
+			'columns_gutter' => 20
 		],
+		'project' => [
+			'image_align' => 'left',
+			'tags_align' => 'uk-flex-center',
+			'overlay_title_size' => 'uk-h3',
+			'overlay' => 'uk-overlay uk-overlay-hover',
+			'overlay_position' => '',
+			'overlay_effect' => 'uk-overlay-fade',
+			'overlay_image_effect' => 'uk-overlay-scale',
+			'columns' => 1,
+			'columns_small' => 2,
+			'columns_medium' => '',
+			'columns_large' => 4,
+			'columns_xlarge' => 6,
+			'columns_gutter' => 20
+		],
+		'date_format' => 'F Y',
 		'markdown' => true,
-		'projects_per_page' => 20
+		'datafields' => ['Software used', 'Integrated frameworks']
 	],
 
 	'events' => [
 
 		'boot' => function ($event, $app) {
-
+			$app->subscribe(
+				new RouteListener
+			);
 		},
 
 		'view.scripts' => function ($event, $scripts) use ($app) {
 
+			$scripts->register('uikit-grid', 'app/assets/uikit/js/components/grid.min.js', 'uikit');
+			$scripts->register('uikit-lightbox', 'app/assets/uikit/js/components/lightbox.min.js', 'uikit');
 			$scripts->register('node-portfolio', 'portfolio:app/bundle/node-portfolio.js', '~site-edit');
 		},
 

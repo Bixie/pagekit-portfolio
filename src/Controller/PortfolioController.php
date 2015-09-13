@@ -62,7 +62,8 @@ class PortfolioController
                     'name'  => 'portfolio:views/admin/project.php'
                 ],
                 '$data' => [
-                    'project'     => $project
+                    'project'  => $project,
+                    'tags'     => Project::allTags()
                 ],
                 'project' => $project
             ];

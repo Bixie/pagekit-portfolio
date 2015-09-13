@@ -4,7 +4,7 @@ namespace Pagekit\Portfolio\Controller;
 
 use Pagekit\Application as App;
 use Pagekit\Module\Module;
-use Pagekit\Blog\Model\Post;
+use Pagekit\Portfolio\Model\Project;
 
 class SiteController
 {
@@ -31,11 +31,9 @@ class SiteController
             App::abort(403, __('Insufficient User Rights.'));
         }
 
-        $query = Post::where(['status = ?', 'date < ?'], [Post::STATUS_PUBLISHED, new \DateTime])->where(function ($query) {
-            return $query->where('roles IS NULL')->whereInSet('roles', App::user()->roles, false, 'OR');
-        })->related('user');
+        $query = Project::where(['date < ?'], [new \DateTime]);
 
-        if (!$limit = $this->blog->config('posts.posts_per_page')) {
+        if (!$limit = $this->portfolio->config('projects_per_page')) {
             $limit = 10;
         }
 
@@ -45,24 +43,26 @@ class SiteController
 
         $query->offset(($page - 1) * $limit)->limit($limit)->orderBy('date', 'DESC');
 
-        foreach ($posts = $query->get() as $post) {
-            $post->excerpt = App::content()->applyPlugins($post->excerpt, ['post' => $post, 'markdown' => $post->get('markdown')]);
-            $post->content = App::content()->applyPlugins($post->content, ['post' => $post, 'markdown' => $post->get('markdown'), 'readmore' => true]);
+		$portfolio_text = '';
+		if ($this->portfolio->config('portfolio_text')) {
+			$portfolio_text = App::content()->applyPlugins($this->portfolio->config('portfolio_text'), ['markdown' => $this->portfolio->config('markdown_enabled')]);;
+		}
+
+		foreach ($projects = $query->get() as $project) {
+			$project->intro = App::content()->applyPlugins($project->intro, ['project' => $project, 'markdown' => $project->get('markdown')]);
+			$project->content = App::content()->applyPlugins($project->content, ['project' => $project, 'markdown' => $project->get('markdown'), 'readmore' => true]);
         }
 
         return [
             '$view' => [
-                'title' => __('Blog'),
-                'name' => 'portfolio/portfolio.php',
-                'link:feed' => [
-                    'rel' => 'alternate',
-                    'href' => App::url('@blog/feed'),
-                    'title' => App::module('system/site')->config('title'),
-                    'type' => App::feed()->create($this->blog->config('feed.type'))->getMIMEType()
-                ]
+                'title' => $this->portfolio->config('portfolio_title') ?: App::node()->title,
+                'name' => 'portfolio/portfolio.php'
             ],
-            'blog' => $this->blog,
-            'posts' => $posts,
+			'tags' => Project::allTags(),
+      		'portfolio' => $this->portfolio,
+			'config' => $this->portfolio->config(),
+			'portfolio_text' => $portfolio_text,
+            'projects' => $projects,
             'total' => $total,
             'page' => $page
         ];
@@ -73,24 +73,25 @@ class SiteController
      */
     public function projectAction($id = 0)
     {
-        if (!$project = Post::where(['id = ?', 'status = ?', 'date < ?'], [$id, Post::STATUS_PUBLISHED, new \DateTime])->related('user')->first()) {
-            App::abort(404, __('Post not found!'));
-        }
-
-        if (!$project->hasAccess(App::user())) {
-            App::abort(403, __('Insufficient User Rights.'));
+        if (!$project = Project::where(['id = ?', 'date < ?'], [$id, new \DateTime])->first()) {
+            App::abort(404, __('Project not found.'));
         }
 
         $project->intro = App::content()->applyPlugins($project->intro, ['project' => $project, 'markdown' => $project->get('markdown')]);
         $project->content = App::content()->applyPlugins($project->content, ['project' => $project, 'markdown' => $project->get('markdown')]);
 
+		$portfolio_text = '';
+		if ($this->portfolio->config('portfolio_text')) {
+			$portfolio_text = App::content()->applyPlugins($this->portfolio->config('portfolio_text'), ['markdown' => $project->get('markdown')]);;
+		}
         return [
             '$view' => [
                 'title' => __($project->title),
                 'name' => 'portfolio/project.php'
             ],
             'portfolio' => $this->portfolio,
-            'project' => $project
+			'config' => $this->portfolio->config(),
+			'project' => $project
         ];
     }
 }

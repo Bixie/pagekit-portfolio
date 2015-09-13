@@ -2,17 +2,12 @@ module.exports = Vue.extend({
 
     data: function () {
         return _.merge({
+            tags: [],
             project: {
                 data: {
                 }
             }
         }, window.$data);
-    },
-
-    created: function () {
-        this.$on('close.editmodal', function () {
-            this.$.formfields.load();
-        });
     },
 
     ready: function () {
@@ -51,7 +46,9 @@ module.exports = Vue.extend({
 
         portfoliobasic: require('../../components/portfolio-basic.vue'),
         portfolioimages: require('../../components/portfolio-images.vue'),
-        portfoliodata: require('../../components/portfolio-data.vue')
+        portfoliodata: require('../../components/portfolio-data.vue'),
+        'input-tags': require('../../components/input-tags.vue'),
+        'input-folder': require('../../components/input-folder.vue')
 
     }
 

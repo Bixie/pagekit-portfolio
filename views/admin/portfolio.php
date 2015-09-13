@@ -1,11 +1,12 @@
-<?php $view->script('admin-portfolio', 'portfolio:app/bundle/admin-portfolio.js', ['vue', 'uikit-nestable']) ?>
+<?php $view->script('admin-portfolio', 'portfolio:app/bundle/admin-portfolio.js', ['vue']) ?>
 
 <div id="portfolio-projects" class="uk-form uk-form-horizontal" v-cloak>
 
 	<div class="uk-margin uk-flex uk-flex-space-between uk-flex-wrap" data-uk-margin>
 		<div class="uk-flex uk-flex-middle uk-flex-wrap" data-uk-margin>
 
-			<h2 class="uk-margin-remove">{{ menu.label | trans }}</h2>
+			<h2 class="uk-margin-remove" v-show="!selected.length">{{ '{0} %count% Projects|{1} %count% Project|]1,Inf[ %count% Projects' | transChoice count {count:count} }}</h2>
+			<h2 class="uk-margin-remove" v-show="selected.length">{{ '{1} %count% Project selected|]1,Inf[ %count% Projects selected' | transChoice selected.length {count:selected.length} }}</h2>
 
 			<div class="uk-margin-left" v-show="selected.length">
 				<ul class="uk-subnav pk-subnav-icon">
@@ -15,6 +16,13 @@
 					</li>
 				</ul>
 			</div>
+
+			<div class="pk-search">
+				<div class="uk-search">
+					<input class="uk-search-field" type="text" v-model="config.filter.search" debounce="300">
+				</div>
+			</div>
+
 
 		</div>
 		<div class="uk-position-relative" data-uk-margin>
@@ -29,48 +37,44 @@
 	</div>
 
 	<div class="uk-overflow-container">
-
-		<div class="pk-table-fake pk-table-fake-header" v-class="pk-table-fake-border: !projects || !projects.length">
-			<div class="pk-table-width-minimum pk-table-fake-nestable-padding"><input type="checkbox"
-																					  v-check-all="selected: input[name=id]">
-			</div>
-			<div class="pk-table-min-width-100">{{ 'Title' | trans }}</div>
-			<div class="pk-table-width-150">{{ 'Tags' | trans }}</div>
-			<div class="pk-table-width-150">{{ 'Url' | trans }}</div>
-		</div>
-
-		<ul class="uk-nestable uk-margin-remove" v-el="nestable" v-show="projects.length">
-			<formitem v-repeat="project: projects | orderBy 'priority'"></formitem>
-
-		</ul>
-
+		<table class="uk-table uk-table-hover uk-table-middle">
+			<thead>
+			<tr>
+				<th class="pk-table-width-minimum"><input type="checkbox" v-check-all="selected: input[name=id]" number></th>
+				<th class="pk-table-min-width-200" v-order="title: config.filter.order">{{ 'Title' | trans }}</th>
+				<th class="pk-table-width-100" v-order="client: config.filter.order">{{ 'Client' | trans }}</th>
+				<th class="pk-table-width-100" v-order="date: config.filter.order">{{ 'Date' | trans }}</th>
+				<th class="pk-table-width-200 pk-table-min-width-200">{{ 'Tags' | trans }}</th>
+				<th class="pk-table-width-200 pk-table-min-width-200">{{ 'URL' | trans }}</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr class="check-item" v-repeat="project: projects" v-class="uk-active: active(portfolio)">
+				<td><input type="checkbox" name="id" value="{{ portfolio.id }}"></td>
+				<td>
+					<a v-attr="href: $url.route('admin/portfolio/project/edit', { id: project.id })">{{ project.title }}</a>
+				</td>
+				<td>
+					{{ project.client }}
+				</td>
+				<td>
+					{{ project.date | date }}
+				</td>
+				<td>
+					{{ project.tags }}
+				</td>
+				<td class="pk-table-text-break">
+					<a v-attr="href: $url.route(project.url)" target="_blank">{{ project.url }}</a>
+				</td>
+			</tr>
+			</tbody>
+		</table>
 	</div>
+
 
 	<h3 class="uk-h1 uk-text-muted uk-text-center"
 		v-show="projects && !projects.length">{{ 'No projects found.' | trans }}</h3>
 
+	<v-pagination page="{{@ config.page }}" pages="{{ pages }}" v-show="pages > 1"></v-pagination>
+
 </div>
-
-<script id="project" type="text/template">
-	<li class="uk-nestable-item" v-class="uk-active: isSelected(project)" data-id="{{ project.id }}">
-
-		<div class="uk-nestable-panel pk-table-fake uk-form uk-visible-hover">
-			<div class="pk-table-width-minimum pk-table-collapse">
-				<div class="uk-nestable-toggle" data-nestable-action="toggle"></div>
-			</div>
-			<div class="pk-table-width-minimum"><input type="checkbox" name="id" value="{{ project.id }}"></div>
-			<div class="pk-table-min-width-100">
-				<a v-attr="href: $url.route('admin/portfolio/project/edit', { id: project.id })">{{ project.title }}</a>
-			</div>
-			<div class="pk-table-width-150 pk-table-max-width-150 uk-text-truncate">
-				{{ project.tags }}
-			</div>
-			<div class="pk-table-width-150 pk-table-max-width-150 uk-text-truncate">
-				<a v-attr="href: $url.route(project.url)" target="_blank">{{ project.url }}</a>
-			</div>
-		</div>
-
-
-	</li>
-
-</script>

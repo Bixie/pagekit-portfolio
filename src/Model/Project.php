@@ -33,6 +33,12 @@ class Project implements \JsonSerializable
 	/** @Column(type="text") */
     public $content = '';
 
+	/** @Column(type="json_array") */
+	public $image;
+
+	/** @Column(type="text") */
+    public $client = '';
+
 	/** @Column(type="datetime") */
 	public $date;
 
@@ -42,6 +48,18 @@ class Project implements \JsonSerializable
 	/** @Column(type="json_array") */
 	public $images;
 
+	public static function allTags () {
+		//todo cache this
+		$tags = [];
+		foreach (self::findAll() as $project) {
+			if (is_array($project->tags)) {
+				$tags = array_merge($tags, $project->tags);
+			}
+		}
+		$tags = array_unique($tags);
+		natsort($tags);
+		return $tags;
+	}
 
     /**
      * {@inheritdoc}

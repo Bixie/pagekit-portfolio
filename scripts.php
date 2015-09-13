@@ -1,4 +1,5 @@
 <?php
+use Pagekit\Site\Model\Node;
 
 return [
 
@@ -15,6 +16,8 @@ return [
 				$table->addColumn('subtitle', 'string', ['length' => 255, 'notnull' => false]);
 				$table->addColumn('intro', 'text', ['notnull' => false]);
 				$table->addColumn('content', 'text', ['notnull' => false]);
+				$table->addColumn('client', 'string', ['length' => 255, 'notnull' => false]);
+				$table->addColumn('image', 'json_array', ['length' => 255, 'notnull' => false]);
 				$table->addColumn('date', 'datetime');
 				$table->addColumn('tags', 'simple_array', ['notnull' => false]);
 				$table->addColumn('images', 'json_array', ['notnull' => false]);
@@ -22,7 +25,29 @@ return [
 				$table->setPrimaryKey(['id']);
 			});
 		}
+		//temp fix trigger install node
+		$nodes = [
 
+			'portfolio' => [
+				'name' => '@portfolio',
+				'label' => 'Portfolio',
+				'controller' => 'Pagekit\\Portfolio\\Controller\\SiteController',
+				'protected' => true,
+				'frontpage' => true
+			]
+
+		];
+		foreach ($nodes as $type => $route) {
+			if (isset($route['protected']) and $route['protected'] and !Node::where(['type = ?'], [$type])->first()) {
+				Node::create([
+					'title' => $route['label'],
+					'slug' => $app->filter($route['label'], 'slugify'),
+					'type' => $type,
+					'status' => 1,
+					'link' => $route['name']
+				])->save();
+			}
+		}
 
     },
 

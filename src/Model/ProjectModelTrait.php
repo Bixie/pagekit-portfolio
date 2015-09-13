@@ -30,6 +30,7 @@ trait ProjectModelTrait
 		if (!$project->id) {
 			$project->priority = 1 + self::getConnection()->fetchColumn('SELECT MAX(priority) FROM @portfolio_project');
 		}
+
     }
 
 }
