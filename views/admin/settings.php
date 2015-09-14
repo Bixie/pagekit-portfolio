@@ -490,6 +490,7 @@
 									<option value="">{{ 'None' | trans }}</option>
 									<option value="top">{{ 'Top' | trans }}</option>
 									<option value="bottom">{{ 'Bottom' | trans }}</option>
+									<option value="both">{{ 'Both' | trans }}</option>
 								</select>
 							</div>
 						</div>

@@ -22,7 +22,7 @@ $config['project_sidebar'] = $config['project']['tags_position'] == 'sidebar' ||
 ?>
 <article id="portfolio-project">
 
-	<?php if ($config['project']['show_navigation'] == 'top' && ($next || $previous)) : ?>
+	<?php if (in_array($config['project']['show_navigation'], ['both', 'top']) && ($next || $previous)) : ?>
 		<ul class="uk-pagination">
 			<?php if ($previous) : ?>
 				<li class="uk-pagination-previous"><a href="<?= $app->url('@portfolio/id', ['id' => $previous->id]) ?>">
@@ -74,7 +74,7 @@ $config['project_sidebar'] = $config['project']['tags_position'] == 'sidebar' ||
 
 	</div>
 
-	<?php if ($config['project']['tags_position'] == 'bottom' && count($project->tags)) : ?>
+	<?php if ($config['project']['tags_position'] == 'content-bottom' && count($project->tags)) : ?>
 		<div class="uk-flex uk-flex-wrap uk-margin <?= $config['project']['tags_align'] ?>" data-uk-margin="">
 			<?php foreach ($project->tags as $tag) : ?>
 				<div class="uk-badge uk-margin-small-right"><?= $tag ?></div>
@@ -140,7 +140,7 @@ $config['project_sidebar'] = $config['project']['tags_position'] == 'sidebar' ||
 		<?php endforeach; ?>
 	</div>
 
-	<?php if ($config['project']['show_navigation'] == 'bottom' && ($next || $previous)) : ?>
+	<?php if (in_array($config['project']['show_navigation'], ['both', 'bottom']) && ($next || $previous)) : ?>
 		<ul class="uk-pagination">
 		<?php if ($previous) : ?>
 			<li class="uk-pagination-previous"><a href="<?= $app->url('@portfolio/id', ['id' => $previous->id]) ?>">
