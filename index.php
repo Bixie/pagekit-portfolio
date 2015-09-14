@@ -146,8 +146,8 @@ return [
 		],
 		'date_format' => 'F Y',
 		'markdown' => true,
-		'datafields' => ['Software used', 'Integrated frameworks']
-	],
+		'datafields' => []
+		],
 
 	'events' => [
 

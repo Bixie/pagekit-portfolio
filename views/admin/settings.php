@@ -1,4 +1,4 @@
-<?php $view->style('codemirror'); $view->script('portfolio-settings', 'portfolio:app/bundle/portfolio-settings.js', ['vue', 'editor']) ?>
+<?php $view->style('codemirror'); $view->script('portfolio-settings', 'portfolio:app/bundle/portfolio-settings.js', ['vue', 'editor', 'uikit-nestable']) ?>
 
 <div id="portfolio-settings" class="uk-form">
 
@@ -710,7 +710,7 @@
 					<div class="uk-margin uk-flex uk-flex-space-between uk-flex-wrap" data-uk-margin>
 						<div data-uk-margin>
 
-							<h2 class="uk-margin-remove">{{ 'Data fields' | trans }}</h2>
+							<h2 class="uk-margin-remove">{{ 'Custom data fields' | trans }}</h2>
 
 						</div>
 						<div data-uk-margin>
@@ -722,18 +722,14 @@
 
 					<div class="uk-form-horizontal">
 
-						Todo
-						<div class="uk-form-row">
-							<span class="uk-form-label">{{ 'Extra data fields' | trans }}</span>
+						<ul class="uk-nestable uk-margin-remove" v-el="datafieldsNestable"
+							v-show="config.datafields.length">
+							<datafield v-repeat="datafield: config.datafields"></datafield>
+						</ul>
 
-							<div class="uk-form-controls uk-form-controls-text">
-								<ul class="uk-list uk-list-line">
-									<li v-repeat="label: config.datafields">
-										{{ label }}
-									</li>
-								</ul>
-							</div>
-						</div>
+						<button type="button" class="uk-button uk-button-primary uk-button-small uk-margin"
+								v-on="click: addDatafield">{{ 'Add option' | trans }}
+						</button>
 
 					</div>
 				</li>

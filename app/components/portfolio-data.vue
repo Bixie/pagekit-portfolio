@@ -1,9 +1,5 @@
 <template>
-
-    <div class="uk-margin">
-        Todo
-    </div>
-
+todo
 </template>
 
 <script>

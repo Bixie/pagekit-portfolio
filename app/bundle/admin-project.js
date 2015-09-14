@@ -251,7 +251,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"uk-margin\">\r\n        Todo\r\n    </div>";
+	module.exports = "todo";
 
 /***/ },
 /* 20 */
