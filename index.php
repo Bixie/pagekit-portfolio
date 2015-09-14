@@ -130,6 +130,7 @@ return [
 		],
 		'project' => [
 			'image_align' => 'left',
+			'metadata_position' => 'content-top',
 			'tags_align' => 'uk-flex-center',
 			'tags_position' => 'sidebar',
 			'show_navigation' => 'bottom',

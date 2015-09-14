@@ -17,7 +17,10 @@ $grid .= $config['project']['columns_medium'] ? ' uk-grid-width-medium-1-'.$conf
 $grid .= $config['project']['columns_large'] ? ' uk-grid-width-large-1-'.$config['project']['columns_large'] : '';
 $grid .= $config['project']['columns_xlarge'] ? ' uk-grid-width-xlarge-1-'.$config['project']['columns_xlarge'] : '';
 
-$config['project_sidebar'] = $config['project']['tags_position'] == 'sidebar' || count($config['datafields']);
+$config['project_sidebar'] = ($config['project']['tags_position'] == 'sidebar'
+									|| $config['project']['metadata_position'] == 'sidebar'
+									|| count($config['datafields']));
+
 
 ?>
 <article id="portfolio-project">
@@ -48,7 +51,7 @@ $config['project_sidebar'] = $config['project']['tags_position'] == 'sidebar' ||
 
 	<?php endif; ?>
 
-	<?php if (!empty($project->date) || !empty($project->client)) : ?>
+	<?php if ($config['project']['metadata_position'] == 'content-top' && (!empty($project->date) || !empty($project->client))) : ?>
 		<p class="uk-article-meta">
 			<?php if (!empty($project->date)) : ?>
 				<?= $project->date->format($config['date_format']) ?>
@@ -87,6 +90,24 @@ $config['project_sidebar'] = $config['project']['tags_position'] == 'sidebar' ||
 			</div>
 			<div class="uk-width-medium-1-4">
 				<div class="uk-panel uk-panel-box">
+
+					<?php if ($config['project']['metadata_position'] == 'sidebar' && (!empty($project->date) || !empty($project->client))) : ?>
+							<?php if (!empty($project->date)) : ?>
+								<dl class="uk-description-list">
+									<dt><?= __('Date') ?></dt>
+									<dd><?= $project->date->format($config['date_format']) ?></dd>
+
+								</dl>
+							<?php endif; ?>
+
+							<?php if (!empty($project->client)) : ?>
+								<dl class="uk-description-list">
+									<dt><?= __('Client') ?></dt>
+									<dd><?= $project->client ?></dd>
+
+								</dl>
+							<?php endif; ?>
+					<?php endif; ?>
 
 					<?php if (count($config['datafields'])) : ?>
 						<dl class="uk-description-list">

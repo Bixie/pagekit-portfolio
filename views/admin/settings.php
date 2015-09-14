@@ -455,6 +455,20 @@
 							</div>
 						</div>
 
+
+						<div class="uk-form-row">
+							<label for="form-project_metadata_position" class="uk-form-label">{{ 'Metadata position' | trans }}</label>
+
+							<div class="uk-form-controls">
+								<select name="project_metadata_position" id="form-project_metadata_position" class="uk-form-width-medium"
+										v-model="config.project.metadata_position">
+									<option value="">{{ "Don't show" | trans }}</option>
+									<option value="content-top">{{ 'Content top' | trans }}</option>
+									<option value="sidebar">{{ 'Sidebar' | trans }}</option>
+								</select>
+							</div>
+						</div>
+
 						<div class="uk-form-row">
 							<label for="form-project_tags_align" class="uk-form-label">{{ 'Tags alignment' | trans }}</label>
 
