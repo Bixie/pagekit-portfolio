@@ -17,6 +17,7 @@ $grid .= $config['project']['columns_medium'] ? ' uk-grid-width-medium-1-'.$conf
 $grid .= $config['project']['columns_large'] ? ' uk-grid-width-large-1-'.$config['project']['columns_large'] : '';
 $grid .= $config['project']['columns_xlarge'] ? ' uk-grid-width-xlarge-1-'.$config['project']['columns_xlarge'] : '';
 
+$config['project_sidebar'] = $config['project']['tags_position'] == 'sidebar' || count($config['datafields']);
 
 ?>
 <article id="portfolio-project">
@@ -38,6 +39,13 @@ $grid .= $config['project']['columns_xlarge'] ? ' uk-grid-width-xlarge-1-'.$conf
 
 	<?php if (!empty($project->subtitle)) : ?>
 		<p class="uk-article-lead"><?= $project->subtitle ?></p>
+	<?php endif; ?>
+
+	<?php if ($config['project_sidebar']) : ?>
+
+		<div class="uk-grid" data-uk-grid-margin="">
+			<div class="uk-width-medium-3-4">
+
 	<?php endif; ?>
 
 	<?php if (!empty($project->date) || !empty($project->client)) : ?>
@@ -66,13 +74,46 @@ $grid .= $config['project']['columns_xlarge'] ? ' uk-grid-width-xlarge-1-'.$conf
 
 	</div>
 
-	<?php if (count($project->tags)) : ?>
+	<?php if ($config['project']['tags_position'] == 'bottom' && count($project->tags)) : ?>
 		<div class="uk-flex uk-flex-wrap uk-margin <?= $config['project']['tags_align'] ?>" data-uk-margin="">
 			<?php foreach ($project->tags as $tag) : ?>
 				<div class="uk-badge uk-margin-small-right"><?= $tag ?></div>
 			<?php endforeach; ?>
 		</div>
 	<?php endif; ?>
+
+<?php if ($config['project_sidebar']) : ?>
+
+			</div>
+			<div class="uk-width-medium-1-4">
+				<div class="uk-panel uk-panel-box">
+
+					<?php if (count($config['datafields'])) : ?>
+						<dl class="uk-description-list">
+							<?php foreach ($config['datafields'] as $datafield) :
+								if (!$value = $project->get($datafield['name'])) continue; ?>
+								<dt><?= $datafield['label'] ?></dt>
+								<dd><?= $value ?></dd>
+							<?php endforeach; ?>
+						</dl>
+					<?php endif; ?>
+
+
+
+					<?php if ($config['project']['tags_position'] == 'sidebar' && count($project->tags)) : ?>
+						<div class="uk-flex uk-flex-wrap uk-margin <?= $config['project']['tags_align'] ?>" data-uk-margin="">
+							<?php foreach ($project->tags as $tag) : ?>
+								<div class="uk-badge uk-margin-small-right"><?= $tag ?></div>
+							<?php endforeach; ?>
+						</div>
+					<?php endif; ?>
+
+				</div>
+			</div>
+		</div>
+
+<?php endif; ?>
+
 
 	<div class="uk-margin uk-grid uk-grid-small <?= $grid ?>" data-uk-grid-margin="">
 		<?php foreach ($project->images as $image) : ?>

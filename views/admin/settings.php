@@ -469,6 +469,19 @@
 						</div>
 
 						<div class="uk-form-row">
+							<label for="form-project_tags_position" class="uk-form-label">{{ 'Tags position' | trans }}</label>
+
+							<div class="uk-form-controls">
+								<select name="project_tags_position" id="form-project_tags_position" class="uk-form-width-medium"
+										v-model="config.project.tags_position">
+									<option value="">{{ "Don't show" | trans }}</option>
+									<option value="content-bottom">{{ 'Content bottom' | trans }}</option>
+									<option value="sidebar">{{ 'Sidebar' | trans }}</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="uk-form-row">
 							<label for="form-project_show_navigation" class="uk-form-label">{{ 'Show navigation' | trans }}</label>
 
 							<div class="uk-form-controls">
