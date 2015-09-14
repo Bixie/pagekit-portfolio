@@ -57,6 +57,13 @@
 	        }, window.$data);
 	    },
 
+	    created: function () {
+	        //check existing datafields
+	        this.config.datafields.forEach(function (datafield) {
+	            this.project.data[datafield.name] =  this.project.data[datafield.name] || '';
+	        }.bind(this));
+	    },
+
 	    ready: function () {
 	        this.Project = this.$resource('api/portfolio/project/:id');
 	        this.tab = UIkit.tab(this.$$.tab, {connect: this.$$.content});
@@ -243,7 +250,38 @@
 
 	module.exports = {
 
-	        inherit: true
+	        inherit: true,
+
+	        created: function () {
+	            this.$on('datafieldvalue.changed', function (name, value) {
+	                this.project.data[name] = value;
+	            });
+	        },
+
+	        components: {
+
+	            datafieldvalue: {
+
+	                data: function () {
+	                    return {
+	                        datafield: '',
+	                        value: ''
+	                    }
+	                },
+
+	                props: ['datafield', 'value'],
+
+	                template: '<label for="form-{{ datafield.name }}" class="uk-form-label">{{ datafield.label }}</label>\n<div class="uk-form-controls">\n    <input id="form-{{ datafield.name }}" class="uk-form-width-medium" type="text" name="{{ datafield.name }}"\n           v-model="value">\n</div>\n',
+
+	                watch: {
+	                    value: function (value) {
+	                        this.$dispatch('datafieldvalue.changed', this.datafield.name, value);
+	                    }
+	                }
+
+	            }
+
+	        }
 
 	    };
 
@@ -251,7 +289,7 @@
 /* 19 */
 /***/ function(module, exports) {
 
-	module.exports = "todo";
+	module.exports = "<div class=\"uk-form-horizontal uk-margin\">\r\n        <div v-repeat=\"datafield: config.datafields\" class=\"uk-form-row\">\r\n\r\n           <datafieldvalue datafield=\"{{ datafield }}\" value=\"{{@ project.data[datafield.name] }}\"></datafieldvalue>\r\n\r\n        </div>\r\n    </div>";
 
 /***/ },
 /* 20 */

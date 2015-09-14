@@ -11,6 +11,13 @@ module.exports = Vue.extend({
         }, window.$data);
     },
 
+    created: function () {
+        //check existing datafields
+        this.config.datafields.forEach(function (datafield) {
+            this.project.data[datafield.name] =  this.project.data[datafield.name] || '';
+        }.bind(this));
+    },
+
     ready: function () {
         this.Project = this.$resource('api/portfolio/project/:id');
         this.tab = UIkit.tab(this.$$.tab, {connect: this.$$.content});
