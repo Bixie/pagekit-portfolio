@@ -4,6 +4,7 @@ namespace Pagekit\Portfolio\Controller;
 
 use Pagekit\Application as App;
 use Pagekit\Portfolio\Model\Project;
+use Pagekit\Portfolio\PortfolioImageHelper;
 
 /**
  * @Route("image", name="image")
@@ -49,8 +50,8 @@ class ImageApiController
 			// remove trailing numbers
 			$data['title'] = preg_replace('/\s?+\d+$/', '', $data['title']);
 
-			// replace underscores with space
-			$data['title'] = trim(str_replace('_', ' ', $data['title']));
+			// replace underscores with space and add capital
+			$data['title'] = ucfirst(trim(str_replace('_', ' ', $data['title'])));
 
 			$images[] = $data;
 		}
@@ -58,13 +59,13 @@ class ImageApiController
         return $images;
     }
 
-    /**
-     * @Route("/{source}", methods="GET", requirements={"source"="\w+"})
-	 * @Request({"options": "array"})
+	/**
+	 * @Route("/clearcache", methods="GET")
+	 * @Access("portfolio: manage portfolio")
 	 */
-    public function getAction($source, $options)
-    {
-        return Project::where(compact('id'))->first();
-    }
-
+	public function clearcacheAction()
+	{
+		PortfolioImageHelper::clearCache(['temp' => true]);
+		return ['message' => 'Cache cleared'];
+	}
 }

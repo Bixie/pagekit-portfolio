@@ -68,6 +68,7 @@
 
 	            }
 	        });
+	        this.imageApi = this.$resource('api/portfolio/image/:task');
 
 	    },
 
@@ -96,6 +97,12 @@
 	        deleteDatafield: function (idx) {
 	            this.config.datafields.$remove(idx);
 	            this.checkDuplicates();
+	        },
+
+	        clearCache: function () {
+	            this.imageApi.query({task: 'clearcache'}, function (data) {
+	                this.$notify(data.message);
+	            });
 	        },
 
 	        checkDuplicates: function () {

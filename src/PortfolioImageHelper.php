@@ -1,0 +1,125 @@
+<?php
+
+
+namespace Pagekit\Portfolio;
+
+use Pagekit\Application as App;
+use Pagekit\View\Helper\Helper;
+use abeautifulsite\SimpleImage;
+
+class PortfolioImageHelper extends Helper {
+
+	/**
+	 * @var App
+	 */
+	protected $app;
+
+	/**
+	 * @param App $app
+	 */
+	public function __construct(App $app)
+	{
+		$this->app = $app;
+	}
+
+	/**
+	 * Set shortcuts.
+	 * @param       $name
+	 * @param array $args
+	 * @return bool|mixed
+	 */
+	public function __invoke($name, $args = [])
+	{
+
+		if (is_callable([$this, $name])) {
+			return call_user_func_array([$this, $name], (array)$args);
+		}
+		return false;
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function getName()
+	{
+		return 'portfolioimage';
+	}
+
+
+	/**
+	 * @param       $resource
+	 * @param array $options
+	 * @return mixed
+	 */
+	public function url ($resource, $options = []) {
+
+		$resource = $this->validResource($resource);
+
+		if (!empty($options['width']) || !empty($options['height'])) {
+
+			if ($resized = $this->resizeImage($resource['src'], $options)) {
+				return $resized;
+			}
+
+		}
+		return $resource['src'];
+	}
+
+
+	protected function validResource ($resource) {
+		$resource = array_replace(['src' => ''], $resource);
+		if (!file_exists($resource['src'])) {
+			$resource['src'] = '/packages/bixie/portfolio/assets/noimage.jpg';
+			$resource['filename'] = 'noimage.jpg';
+			$resource['title'] = 'No image found';
+		}
+		return $resource;
+	}
+
+	protected function resizeImage ($source, $options) {
+		try {
+
+			$cachepath = $this->getCachePath($source, $options);
+
+			if (!file_exists($cachepath)) {
+
+				$image = new SimpleImage(App::path() . '/' . $source);
+
+				if (!empty($options['width']) && empty($options['height'])) {
+					$image->fit_to_width($options['width']);
+				}
+				if (!empty($options['height']) && empty($options['width'])) {
+					$image->fit_to_height($options['height']);
+				}
+				if (!empty($options['height']) && !empty($options['width'])) {
+					$image->thumbnail($options['width'], $options['height']);
+				}
+
+				$image->save($cachepath);
+			}
+
+			return str_replace(App::path(), '', $cachepath);
+
+		} catch (\Exception $e) {
+			return false;
+		}
+	}
+
+	protected function getCachePath ($source, $options) {
+
+		$folder = App::get('path.cache') . '/portfolio';
+		App::file()->makeDir($folder);
+
+		$cachename = md5($source . filemtime($source) . serialize($options)) . '-' . basename($source);
+
+		return "$folder/$cachename";
+	}
+
+	public static function clearCache ($options = []) {
+		// clear temp folder
+		if (@$options['temp']) {
+			App::file()->delete(App::get('path.cache') . '/portfolio');
+		}
+
+	}
+}

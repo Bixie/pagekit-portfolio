@@ -1,6 +1,7 @@
 <?php
 
 use Pagekit\Portfolio\Event\RouteListener;
+use \Pagekit\Portfolio\PortfolioImageHelper;
 
 return [
 
@@ -121,6 +122,7 @@ return [
 			'title_size' => 'uk-h3',
 			'read_more' => 'Read more',
 			'read_more_style' => 'uk-button',
+			'thumbsize' => ['width' => 400, 'height' => ''],
 			'columns' => 1,
 			'columns_small' => 2,
 			'columns_medium' => '',
@@ -134,6 +136,7 @@ return [
 			'tags_align' => 'uk-flex-center',
 			'tags_position' => 'sidebar',
 			'show_navigation' => 'bottom',
+			'thumbsize' => ['width' => 400, 'height' => ''],
 			'overlay_title_size' => 'uk-h3',
 			'overlay' => 'uk-overlay uk-overlay-hover',
 			'overlay_position' => '',
@@ -157,6 +160,10 @@ return [
 			$app->subscribe(
 				new RouteListener
 			);
+			$app->extend('view', function ($view) use ($app) {
+				return $view->addHelper(new PortfolioImageHelper($app));
+			});
+			//todo event to clear cache?
 		},
 
 		'view.scripts' => function ($event, $scripts) use ($app) {

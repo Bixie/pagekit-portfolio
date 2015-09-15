@@ -159,6 +159,19 @@
 							</div>
 						</div>
 
+						<div class="uk-form-row">
+							<span class="uk-form-label">{{ 'Image thumbs cache' | trans }}</span>
+
+							<div class="uk-form-controls uk-form-controls-text">
+								<p class="uk-form-controls-condensed">
+									<button type="button" class="uk-button"
+											v-confirm="'Clear image cache?' | trans"
+											v-on="click: clearCache">
+										{{ 'Clear cache' | trans }}</button>
+								</p>
+							</div>
+						</div>
+
 					</div>
 				</li>
 				<li>

@@ -14,6 +14,23 @@
 	</div>
 
 	<div class="uk-form-row">
+		<label for="form-project_image_align" class="uk-form-label">{{ 'Thumbs size' | trans }}</label>
+
+		<div class="uk-form-controls uk-form-controls-text">
+			<p class="uk-form-controls-condensed">
+				<label class="uk-form-label" style="width: 70px">{{ 'Width' | trans }}</label>
+				<input type="number" placeholder="{{ 'Auto' | trans }}" class="uk-form-width-small" v-model="config.project.thumbsize.width">
+			</p>
+			<p class="uk-form-controls-condensed">
+				<label class="uk-form-label" style="width: 70px">{{ 'Height' | trans }}</label>
+				<input type="number" placeholder="{{ 'Auto' | trans }}" class="uk-form-width-small" v-model="config.project.thumbsize.height">
+
+			</p>
+
+		</div>
+	</div>
+
+	<div class="uk-form-row">
 		<label for="form-project_metadata_position" class="uk-form-label">{{ 'Metadata position' | trans }}</label>
 
 		<div class="uk-form-controls">

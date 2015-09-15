@@ -1,5 +1,6 @@
 <?php
 /**
+ * @var $view
  * @var array $config
  * @var Pagekit\Portfolio\Model\Project $project
  */
@@ -52,7 +53,7 @@
 				if (empty($image['show_teaser'])) continue;?>
 				<li><a href="<?= $image['src'] ?>" title="<?= $image['title'] ?>"
 					   data-uk-lightbox="{group:'project-<?= $project->id ?>'}">
-						<img src="<?= $image['src'] ?>" alt="<?= $image['title'] ?>"></a></li>
+						<img src="<?= $view->portfolioimage('url', [$image, $config['teaser']['thumbsize']]) ?>" alt="<?= $image['title'] ?>"></a></li>
 			<?php endforeach; ?>
 		</ul>
 

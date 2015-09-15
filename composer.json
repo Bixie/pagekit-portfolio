@@ -15,5 +15,8 @@
   "extra": {
     "icon": "icon.svg",
     "scripts": "scripts.php"
+  },
+  "require": {
+    "abeautifulsite/simpleimage": "2.5.*"
   }
 }

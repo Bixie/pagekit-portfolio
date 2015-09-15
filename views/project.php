@@ -140,7 +140,7 @@ $config['project_sidebar'] = ($config['project']['tags_position'] == 'sidebar'
 		<?php foreach ($project->images as $image) : ?>
 			<div>
 					<figure class="<?= $config['project']['overlay'] ?>">
-						<img src="<?= $image['src'] ?>" alt="<?= $image['title'] ?>"
+						<img src="<?= $view->portfolioimage('url', [$image, $config['project']['thumbsize']]) ?>" alt="<?= $image['title'] ?>"
 							 class="<?= $config['project']['overlay_image_effect'] ?>">
 						<?php if (!empty($config['project']['overlay'])): ?>
 						<div class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center <?= $config['project']['overlay_position'] ?> <?= $config['project']['overlay_effect'] ?>">
