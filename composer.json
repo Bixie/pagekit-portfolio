@@ -1,7 +1,7 @@
 {
   "name": "bixie/portfolio",
   "type": "pagekit-extension",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "title": "Portfolio",
   "description": "Create a beautiful portfolio in your Pagekit site",
   "license": "MIT",
