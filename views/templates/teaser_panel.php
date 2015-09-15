@@ -6,7 +6,7 @@
  */
 ?>
 <div data-uk-filter="<?= implode(',', $project->tags) ?>">
-	<div class="uk-panel <?= $config['teaser']['panel_style'] ?> <?= $config['teaser']['panel_align'] ?>">
+	<div class="uk-panel <?= $config['teaser']['panel_style'] ?> <?= $config['teaser']['content_align'] ?>">
 
 		<?php if ($config['teaser']['show_image']) : ?>
 			<div class="uk-panel-teaser">
@@ -48,14 +48,16 @@
 			</div>
 		<?php endif; ?>
 
-		<ul class="uk-thumbnav  <?= $config['grid_teaser'] ?>">
-			<?php foreach ($project->images as $image) :
-				if (empty($image['show_teaser'])) continue;?>
-				<li><a href="<?= $image['src'] ?>" title="<?= $image['title'] ?>"
-					   data-uk-lightbox="{group:'project-<?= $project->id ?>'}">
-						<img src="<?= $view->portfolioimage('url', [$image, $config['teaser']['thumbsize']]) ?>" alt="<?= $image['title'] ?>"></a></li>
-			<?php endforeach; ?>
-		</ul>
+		<?php if ($config['teaser']['show_thumbs']) : ?>
+			<ul class="uk-thumbnav  <?= $config['grid_teaser'] ?>">
+				<?php foreach ($project->images as $image) :
+					if (empty($image['show_teaser'])) continue;?>
+					<li><a href="<?= $image['src'] ?>" title="<?= $image['title'] ?>"
+						   data-uk-lightbox="{group:'project-<?= $project->id ?>'}">
+							<img src="<?= $view->portfolioimage('url', [$image, $config['teaser']['thumbsize']]) ?>" alt="<?= $image['title'] ?>"></a></li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
 
 		<?php if ($config['teaser']['show_readmore']) : ?>
 			<a class="<?= $config['teaser']['read_more_style'] ?>" href="<?= $app->url('@portfolio/id', ['id' => $project->id]) ?>">

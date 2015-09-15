@@ -60,7 +60,7 @@ $config['grid_teaser'] .= $config['teaser']['columns_xlarge'] ? ' uk-grid-width-
 
 		<?php foreach ($projects as $project) : ?>
 
-			<?= $view->render('portfolio/templates/project_panel.php', ['config' => $config, 'project' => $project]) ?>
+			<?= $view->render(sprintf('portfolio/templates/teaser_%s.php', $config['teaser']['template']), ['config' => $config, 'project' => $project]) ?>
 
 		<?php endforeach; ?>
 
