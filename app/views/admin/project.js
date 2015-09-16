@@ -3,11 +3,7 @@ module.exports = Vue.extend({
     data: function () {
         return _.merge({
             tags: [],
-            project: {
-                data: {
-                },
-                tags: []
-            }
+            project: {}
         }, window.$data);
     },
 

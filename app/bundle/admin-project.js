@@ -49,11 +49,7 @@
 	    data: function () {
 	        return _.merge({
 	            tags: [],
-	            project: {
-	                data: {
-	                },
-	                tags: []
-	            }
+	            project: {}
 	        }, window.$data);
 	    },
 

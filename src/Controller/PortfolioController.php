@@ -48,6 +48,8 @@ class PortfolioController
 				$module = App::module('portfolio');
 
 				$project = Project::create([
+					'data' => [],
+					'tags' => [],
 					'date' => new \DateTime()
 				]);
 
