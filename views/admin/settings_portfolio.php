@@ -346,9 +346,9 @@
 			<div class="uk-form-controls">
 				<select name="teaser_content_align" id="form-teaser_content_align" class="uk-form-width-medium"
 						v-model="config.teaser.content_align">
-					<option value="">{{ 'Left' | trans }}</option>
-					<option value="uk-text-right">{{ 'Right' | trans }}</option>
-					<option value="uk-text-center">{{ 'Center' | trans }}</option>
+					<option value="left">{{ 'Left' | trans }}</option>
+					<option value="right">{{ 'Right' | trans }}</option>
+					<option value="center">{{ 'Center' | trans }}</option>
 				</select>
 			</div>
 		</div>

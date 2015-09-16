@@ -6,7 +6,7 @@
  */
 ?>
 <div data-uk-filter="<?= implode(',', $project->tags) ?>">
-	<div class="uk-panel <?= $config['teaser']['panel_style'] ?> <?= $config['teaser']['content_align'] ?>">
+	<div class="uk-panel <?= $config['teaser']['panel_style'] ?> uk-text-<?= $config['teaser']['content_align'] ?>">
 
 		<?php if ($config['teaser']['show_image']) : ?>
 			<div class="uk-panel-teaser">

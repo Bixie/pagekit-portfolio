@@ -12,7 +12,7 @@
 		<img src="<?= $project->image['teaser']['src'] ?>" alt="<?= $project->image['teaser']['alt'] ?>"
 			 class="<?= $config['teaser']['overlay_image_effect'] ?>">
 		<?php if (!empty($config['teaser']['overlay'])) : ?>
-			<div class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center <?= $config['teaser']['overlay_position'] ?> <?= $config['teaser']['overlay_effect'] ?>">
+			<div class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-<?= $config['teaser']['content_align'] ?> uk-flex-middle uk-text-<?= $config['teaser']['content_align'] ?> <?= $config['teaser']['overlay_position'] ?> <?= $config['teaser']['overlay_effect'] ?>">
 				<div>
 					<?php if ($config['teaser']['show_title']) : ?>
 						<h3 class="<?= $config['teaser']['title_size'] ?>"><a class="uk-link-reset" href="<?= $app->url('@portfolio/id', ['id' => $project->id]) ?>"><?= $project->title ?></a></h3>
