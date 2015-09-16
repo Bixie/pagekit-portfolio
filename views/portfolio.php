@@ -22,6 +22,7 @@ $config['grid_teaser'] .= $config['teaser']['columns_medium'] ? ' uk-grid-width-
 $config['grid_teaser'] .= $config['teaser']['columns_large'] ? ' uk-grid-width-large-1-'.$config['teaser']['columns_large'] : '';
 $config['grid_teaser'] .= $config['teaser']['columns_xlarge'] ? ' uk-grid-width-xlarge-1-'.$config['teaser']['columns_xlarge'] : '';
 
+$config['portfolio_image_class'] = in_array($config['portfolio_image_align'], ['right', 'left']) ? 'uk-align-' . $config['portfolio_image_align'] : 'uk-text-center'
 ?>
 
 <article id="portfolio-projects">
@@ -32,7 +33,7 @@ $config['grid_teaser'] .= $config['teaser']['columns_xlarge'] ? ' uk-grid-width-
 	<div class="uk-clearfix">
 
 		<?php if ($config['portfolio_image']) : ?>
-			<div class="uk-align-<?= $config['portfolio_image_align'] ?>">
+			<div class="<?= $config['portfolio_image_class'] ?>">
 				<img src="<?= $config['portfolio_image'] ?>" alt="">
 			</div>
 

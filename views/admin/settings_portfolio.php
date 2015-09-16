@@ -10,6 +10,7 @@
 						v-model="config.portfolio_image_align">
 					<option value="left">{{ 'Left' | trans }}</option>
 					<option value="right">{{ 'Right' | trans }}</option>
+					<option value="center">{{ 'Center' | trans }}</option>
 				</select>
 			</div>
 		</div>
