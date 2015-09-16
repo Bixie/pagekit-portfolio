@@ -123,7 +123,7 @@ return [
 			'overlay_position' => '',
 			'overlay_effect' => 'uk-overlay-fade',
 			'overlay_image_effect' => 'uk-overlay-scale',
-			'content_align' => '',
+			'content_align' => 'left',
 			'tags_align' => 'uk-flex-center',
 			'title_size' => 'uk-h3',
 			'read_more' => 'Read more',
