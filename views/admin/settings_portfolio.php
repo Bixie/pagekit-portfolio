@@ -371,6 +371,23 @@
 		</div>
 
 		<div class="uk-form-row">
+			<label for="form-teaser_title_color" class="uk-form-label">{{ 'Teaser title color' | trans }}</label>
+
+			<div class="uk-form-controls">
+				<select name="teaser_title_color" id="form-teaser_title_color" class="uk-form-width-medium"
+						v-model="config.teaser.title_color">
+					<option value="">{{ 'Normal' | trans }}</option>
+					<option value="uk-text-primary">{{ 'Primary' | trans }}</option>
+					<option value="uk-text-contrast">{{ 'Contrast' | trans }}</option>
+					<option value="uk-text-muted">{{ 'Muted' | trans }}</option>
+					<option value="uk-text-success">{{ 'Success' | trans }}</option>
+					<option value="uk-text-warning">{{ 'Warning' | trans }}</option>
+					<option value="uk-text-danger">{{ 'Danger' | trans }}</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="uk-form-row">
 			<label for="form-teaser_tags_align" class="uk-form-label">{{ 'Tags alignment' | trans }}</label>
 
 			<div class="uk-form-controls">

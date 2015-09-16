@@ -126,6 +126,7 @@ return [
 			'content_align' => 'left',
 			'tags_align' => 'uk-flex-center',
 			'title_size' => 'uk-h3',
+			'title_color' => '',
 			'read_more' => 'Read more',
 			'read_more_style' => 'uk-button',
 			'readmore_align' => 'uk-text-center',
