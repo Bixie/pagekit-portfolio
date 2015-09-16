@@ -49,8 +49,8 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr class="check-item" v-repeat="project: projects" v-class="uk-active: active(portfolio)">
-				<td><input type="checkbox" name="id" value="{{ portfolio.id }}"></td>
+			<tr class="check-item" v-repeat="project: projects" v-class="uk-active: active(project)">
+				<td><input type="checkbox" name="id" value="{{ project.id }}"></td>
 				<td>
 					<a v-attr="href: $url.route('admin/portfolio/project/edit', { id: project.id })">{{ project.title }}</a>
 				</td>
