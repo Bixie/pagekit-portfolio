@@ -21,7 +21,7 @@ $config['project_sidebar'] = ($config['project']['tags_position'] == 'sidebar'
 									|| $config['project']['metadata_position'] == 'sidebar'
 									|| count($config['datafields']));
 
-
+$config['project_image_class'] = in_array($config['project']['image_align'], ['right', 'left']) ? 'uk-align-' . $config['project']['image_align'] : 'uk-text-center'
 ?>
 <article id="portfolio-project">
 
@@ -68,7 +68,7 @@ $config['project_sidebar'] = ($config['project']['tags_position'] == 'sidebar'
 	<div class="uk-clearfix">
 
 		<?php if (isset($project->image['main']['src'])): ?>
-			<div class="uk-align-<?= $config['project']['image_align'] ?>">
+			<div class="<?= $config['project_image_class'] ?>">
 				<img src="<?= $project->image['main']['src'] ?>" alt="<?= $project->image['main']['alt'] ?>">
 			</div>
 		<?php endif; ?>
