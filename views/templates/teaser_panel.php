@@ -60,8 +60,11 @@
 		<?php endif; ?>
 
 		<?php if ($config['teaser']['show_readmore']) : ?>
-			<a class="<?= $config['teaser']['read_more_style'] ?>" href="<?= $app->url('@portfolio/id', ['id' => $project->id]) ?>">
-				<?= $config['teaser']['read_more'] ?></a>
+			<div class="<?= $config['teaser']['readmore_align']; ?>">
+				<a class="<?= $config['teaser']['read_more_style'] ?>"
+				   href="<?= $app->url('@portfolio/id', ['id' => $project->id]) ?>">
+					<?= $config['teaser']['read_more'] ?></a>
+			</div>
 		<?php endif; ?>
 
 	</div>

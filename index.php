@@ -128,6 +128,7 @@ return [
 			'title_size' => 'uk-h3',
 			'read_more' => 'Read more',
 			'read_more_style' => 'uk-button',
+			'readmore_align' => 'uk-text-center',
 			'thumbsize' => ['width' => 400, 'height' => ''],
 			'columns' => 1,
 			'columns_small' => 2,

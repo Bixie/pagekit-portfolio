@@ -4,6 +4,7 @@
  * @var array $config
  * @var Pagekit\Portfolio\Model\Project $project
  */
+
 ?>
 <div data-uk-filter="<?= implode(',', $project->tags) ?>">
 
@@ -48,8 +49,12 @@
 					<?php endif; ?>
 
 					<?php if ($config['teaser']['show_readmore'] && $config['teaser']['read_more_style'] != 'overlay') : ?>
-						<a class="<?= $config['teaser']['read_more_style'] ?>" href="<?= $app->url('@portfolio/id', ['id' => $project->id]) ?>">
-							<?= $config['teaser']['read_more'] ?></a>
+						<div class="<?= $config['teaser']['readmore_align']; ?>">
+							<a class="<?= $config['teaser']['read_more_style'] ?>"
+							   href="<?= $app->url('@portfolio/id', ['id' => $project->id]) ?>">
+								<?= $config['teaser']['read_more'] ?></a>
+						</div>
+
 					<?php endif; ?>
 
 				</div>

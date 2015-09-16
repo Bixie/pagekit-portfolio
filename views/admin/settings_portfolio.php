@@ -408,6 +408,19 @@
 		</div>
 
 		<div class="uk-form-row">
+			<label for="form-teaser_readmore_align" class="uk-form-label">{{ 'Read more alignment' | trans }}</label>
+
+			<div class="uk-form-controls">
+				<select name="teaser_readmore_align" id="form-teaser_readmore_align" class="uk-form-width-medium"
+						v-model="config.teaser.readmore_align">
+					<option value="uk-text-left">{{ 'Left' | trans }}</option>
+					<option value="uk-text-right">{{ 'Right' | trans }}</option>
+					<option value="uk-text-center">{{ 'Center' | trans }}</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="uk-form-row">
 			<label for="form-project_image_align" class="uk-form-label">{{ 'Thumbs size' | trans }}</label>
 
 			<div class="uk-form-controls uk-form-controls-text">
