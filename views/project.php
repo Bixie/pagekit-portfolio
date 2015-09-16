@@ -154,7 +154,8 @@ $config['project_image_class'] = in_array($config['project']['image_align'], ['r
 							</div>
 						</div>
 						<?php endif; ?>
-						<a class="uk-position-cover" href="<?= $image['src'] ?>" data-uk-lightbox="{group: 'project-<?= $project->id ?>'}"></a>
+						<a class="uk-position-cover" href="<?= $image['src'] ?>" title="<?= $image['title'] ?>"
+						   data-uk-lightbox="{group: 'project-<?= $project->id ?>'}"></a>
 					</figure>
 
 			</div>
