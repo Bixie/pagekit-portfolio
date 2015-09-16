@@ -66,7 +66,7 @@
 	</figure>
 
 	<?php if ($config['teaser']['show_thumbs']) : ?>
-		<ul class="uk-thumbnav  <?= $config['grid_teaser'] ?>">
+		<ul class="uk-margin-small-top uk-thumbnav  <?= $config['grid_teaser'] ?>">
 			<?php foreach ($project->images as $image) :
 				if (empty($image['show_teaser'])) continue;?>
 				<li><a href="<?= $image['src'] ?>" title="<?= $image['title'] ?>"
