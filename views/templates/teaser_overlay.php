@@ -19,7 +19,7 @@
 					<?php endif; ?>
 
 					<?php if ($config['teaser']['show_subtitle']) : ?>
-						<p class="uk-article-lead"><?= $project->subtitle ?></p>
+						<p class="uk-article-lead uk-text-contrast"><?= $project->subtitle ?></p>
 					<?php endif; ?>
 
 					<?php if ($config['teaser']['show_date'] || $config['teaser']['show_client']) : ?>
