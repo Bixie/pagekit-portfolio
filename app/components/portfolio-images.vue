@@ -31,7 +31,7 @@
 
                 <div class="uk-form-controls">
                     <ul class="uk-float-right uk-subnav pk-subnav-icon">
-                        <li><a class="pk-icon-info pk-icon-hover" data-uk-modal="{target:'#folder-help'}"></a></li>
+                        <li><a class="pk-icon-help pk-icon-hover" data-uk-modal="{target:'#folder-help'}"></a></li>
                     </ul>
                     <input-folder folder="{{@ project.image.folder }}" class="uk-width-medium-1-2"></input-folder>
                 </div>
