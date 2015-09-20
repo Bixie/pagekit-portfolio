@@ -1,8 +1,8 @@
 <template>
 
-    <div v-on="click: pick()" class="{{ class }}">
+    <div v-on="click: pick" class="{{ class }}">
         <ul class="uk-float-right uk-subnav pk-subnav-icon">
-            <li><a class="pk-icon-delete pk-icon-hover" title="{{ 'Delete' | trans }}" data-uk-tooltip="{delay: 500}" v-on="click: remove()"></a></li>
+            <li><a class="pk-icon-delete pk-icon-hover" title="{{ 'Delete' | trans }}" data-uk-tooltip="{delay: 500, 'pos': 'left'}" v-on="click: remove"></a></li>
         </ul>
         <a class="pk-icon-folder-circle uk-margin-right"></a>
         <a v-if="!folder" class="uk-text-muted">{{ 'Select folder' | trans }}</a>
@@ -48,7 +48,8 @@
                 this.$.modal.close();
             },
 
-            remove: function() {
+            remove: function(e) {
+                e.stopPropagation();
                 this.folder = ''
             },
 
