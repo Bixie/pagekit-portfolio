@@ -1,6 +1,6 @@
 <?php  $view->style('codemirror'); $view->script('admin-project', 'bixie/portfolio:app/bundle/admin-project.js', ['vue', 'editor']); ?>
 
-<form id="project-edit" class="uk-form" name="form" v-on="valid: save" v-cloak>
+<form id="project-edit" class="uk-form" name="form" v-on="submit: save | valid" v-cloak>
 
 	<div class="uk-margin uk-flex uk-flex-space-between uk-flex-wrap" data-uk-margin>
 		<div data-uk-margin>
