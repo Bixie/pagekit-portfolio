@@ -2,8 +2,6 @@ module.exports = [
 
     {
         entry: {
-            /*pagekit addons*/
-            "node-portfolio": "./app/components/node-portfolio.vue",
             /*frontpage views*/
             "portfolio": "./app/views/portfolio.js",
             /*admin views*/
