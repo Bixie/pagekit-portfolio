@@ -38,6 +38,16 @@ return [
 		// remove the config
 		$app['config']->remove('bixie/portfolio');
 
-	}
+	},
+
+	'updates' => [
+
+		'1.1.0' => function ($app) {
+			//convert config to new module name
+			$app['config']->set('bixie/portfolio', $app->config('portfolio')->toArray());
+			$app['config']->remove('portfolio');
+		}
+
+	]
 
 ];
