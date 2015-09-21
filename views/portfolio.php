@@ -61,7 +61,7 @@ $config['portfolio_image_class'] = in_array($config['portfolio_image_align'], ['
 
 		<?php foreach ($projects as $project) : ?>
 
-			<?= $view->render(sprintf('bixie/portfolio:views/templates/teaser_%s.php', $config['teaser']['template']), ['config' => $config, 'project' => $project]) ?>
+			<?= $view->render(sprintf('bixie/portfolio/templates/teaser_%s.php', $config['teaser']['template']), ['config' => $config, 'project' => $project]) ?>
 
 		<?php endforeach; ?>
 

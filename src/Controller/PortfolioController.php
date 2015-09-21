@@ -19,7 +19,7 @@ class PortfolioController
         return [
             '$view' => [
                 'title' => __('Portfolio'),
-                'name'  => 'bixie/portfolio:views/admin/portfolio.php'
+                'name'  => 'bixie/portfolio/admin/portfolio.php'
             ],
             '$data' => [
                 'config'   => [
@@ -61,7 +61,7 @@ class PortfolioController
             return [
                 '$view' => [
                     'title' => $id ? __('Edit Project') : __('Add Project'),
-                    'name'  => 'bixie/portfolio:views/admin/project.php'
+                    'name'  => 'bixie/portfolio/admin/project.php'
                 ],
                 '$data' => [
 					'config' => App::module('bixie/portfolio')->config(),
@@ -87,7 +87,7 @@ class PortfolioController
         return [
             '$view' => [
                 'title' => __('Portfolio Settings'),
-                'name'  => 'bixie/portfolio:views/admin/settings.php'
+                'name'  => 'bixie/portfolio/admin/settings.php'
             ],
             '$data' => [
                 'config' => App::module('bixie/portfolio')->config()

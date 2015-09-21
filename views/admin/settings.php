@@ -84,7 +84,7 @@
 						</div>
 					</div>
 
-					<?= $view->render('portfolio/admin/settings_portfolio.php') ?>
+					<?= $view->render('bixie/portfolio/admin/settings_portfolio.php') ?>
 
 				</li>
 				<li>
@@ -102,7 +102,7 @@
 						</div>
 					</div>
 
-					<?= $view->render('portfolio/admin/settings_project.php') ?>
+					<?= $view->render('bixie/portfolio/admin/settings_project.php') ?>
 
 				</li>
 				<li>

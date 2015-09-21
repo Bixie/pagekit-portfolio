@@ -45,7 +45,7 @@ class SiteController
         return [
             '$view' => [
                 'title' => $this->portfolio->config('portfolio_title') ?: App::node()->title,
-                'name' => 'bixie/portfolio:views/portfolio.php'
+                'name' => 'bixie/portfolio/portfolio.php'
             ],
 			'tags' => Project::allTags(),
       		'portfolio' => $this->portfolio,
@@ -73,7 +73,7 @@ class SiteController
         return [
             '$view' => [
                 'title' => __($project->title),
-                'name' => 'bixie/portfolio:views/project.php'
+                'name' => 'bixie/portfolio/project.php'
             ],
             'portfolio' => $this->portfolio,
 			'config' => $this->portfolio->config(),
