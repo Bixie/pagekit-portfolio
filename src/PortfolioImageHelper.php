@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Pagekit\Portfolio;
+namespace Bixie\Portfolio;
 
 use Pagekit\Application as App;
 use Pagekit\View\Helper\Helper;

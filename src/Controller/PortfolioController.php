@@ -1,9 +1,9 @@
 <?php
 
-namespace Pagekit\Portfolio\Controller;
+namespace Bixie\Portfolio\Controller;
 
 use Pagekit\Application as App;
-use Pagekit\Portfolio\Model\Project;
+use Bixie\Portfolio\Model\Project;
 
 /**
  * @Access(admin=true)
@@ -19,7 +19,7 @@ class PortfolioController
         return [
             '$view' => [
                 'title' => __('Portfolio'),
-                'name'  => 'portfolio:views/admin/portfolio.php'
+                'name'  => 'bixie/portfolio:views/admin/portfolio.php'
             ],
             '$data' => [
                 'config'   => [
@@ -45,7 +45,7 @@ class PortfolioController
                     App::abort(404, __('Invalid project id.'));
                 }
 
-				$module = App::module('portfolio');
+				$module = App::module('bixie/portfolio');
 
 				$project = Project::create([
 					'data' => [],
@@ -61,10 +61,10 @@ class PortfolioController
             return [
                 '$view' => [
                     'title' => $id ? __('Edit Project') : __('Add Project'),
-                    'name'  => 'portfolio:views/admin/project.php'
+                    'name'  => 'bixie/portfolio:views/admin/project.php'
                 ],
                 '$data' => [
-					'config' => App::module('portfolio')->config(),
+					'config' => App::module('bixie/portfolio')->config(),
                 	'project'  => $project,
                     'tags'     => Project::allTags()
                 ],
@@ -87,10 +87,10 @@ class PortfolioController
         return [
             '$view' => [
                 'title' => __('Portfolio Settings'),
-                'name'  => 'portfolio:views/admin/settings.php'
+                'name'  => 'bixie/portfolio:views/admin/settings.php'
             ],
             '$data' => [
-                'config' => App::module('portfolio')->config()
+                'config' => App::module('bixie/portfolio')->config()
             ]
         ];
     }

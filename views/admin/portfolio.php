@@ -1,4 +1,4 @@
-<?php $view->script('admin-portfolio', 'portfolio:app/bundle/admin-portfolio.js', ['vue']) ?>
+<?php $view->script('admin-portfolio', 'bixie/portfolio:app/bundle/admin-portfolio.js', ['vue']) ?>
 
 <div id="portfolio-projects" class="uk-form uk-form-horizontal" v-cloak>
 

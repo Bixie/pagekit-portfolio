@@ -4,9 +4,9 @@
  * @var array $tags
  * @var array $config
  * @var Pagekit\Module\Module $portfolio
- * @var Pagekit\Portfolio\Model\Project $project
+ * @var Bixie\Portfolio\Model\Project $project
  */
-$view->script('portfolio', 'portfolio:app/bundle/portfolio.js', ['uikit-grid', 'uikit-lightbox']);
+$view->script('portfolio', 'bixie/portfolio:app/bundle/portfolio.js', ['uikit-grid', 'uikit-lightbox']);
 
 // Grid
 $grid  = 'uk-grid-width-1-'.$config['columns'];
@@ -61,7 +61,7 @@ $config['portfolio_image_class'] = in_array($config['portfolio_image_align'], ['
 
 		<?php foreach ($projects as $project) : ?>
 
-			<?= $view->render(sprintf('portfolio/templates/teaser_%s.php', $config['teaser']['template']), ['config' => $config, 'project' => $project]) ?>
+			<?= $view->render(sprintf('bixie/portfolio:views/templates/teaser_%s.php', $config['teaser']['template']), ['config' => $config, 'project' => $project]) ?>
 
 		<?php endforeach; ?>
 

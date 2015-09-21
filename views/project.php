@@ -3,12 +3,12 @@
  * @var $view
  * @var array $config
  * @var Pagekit\Module\Module $portfolio
- * @var Pagekit\Portfolio\Model\Project $project
- * @var Pagekit\Portfolio\Model\Project|null $previous
- * @var Pagekit\Portfolio\Model\Project|null $next
+ * @var Bixie\Portfolio\Model\Project $project
+ * @var Bixie\Portfolio\Model\Project|null $previous
+ * @var Bixie\Portfolio\Model\Project|null $next
  */
 
-$view->script('portfolio', 'portfolio:app/bundle/portfolio.js', ['uikit-lightbox']);
+$view->script('portfolio', 'bixie/portfolio:app/bundle/portfolio.js', ['uikit-lightbox']);
 
 // Grid
 $grid  = 'uk-grid-width-1-'.$config['project']['columns'];

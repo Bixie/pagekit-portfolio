@@ -1,9 +1,9 @@
 <?php
 
-namespace Pagekit\Portfolio\Event;
+namespace Bixie\Portfolio\Event;
 
 use Pagekit\Application as App;
-use Pagekit\Portfolio\UrlResolver;
+use Bixie\Portfolio\UrlResolver;
 use Pagekit\Event\EventSubscriberInterface;
 
 class RouteListener implements EventSubscriberInterface
@@ -15,7 +15,7 @@ class RouteListener implements EventSubscriberInterface
     public function onConfigureRoute($event, $route)
     {
         if ($route->getName() == '@portfolio/id') {
-            App::routes()->alias(dirname($route->getPath()).'/{slug}', '@portfolio/id', ['_resolver' => 'Pagekit\Portfolio\UrlResolver']);
+            App::routes()->alias(dirname($route->getPath()).'/{slug}', '@portfolio/id', ['_resolver' => 'Bixie\Portfolio\UrlResolver']);
         }
     }
 

@@ -2,7 +2,7 @@
 /**
  * @var $view
  * @var array $config
- * @var Pagekit\Portfolio\Model\Project $project
+ * @var Bixie\Portfolio\Model\Project $project
  */
 ?>
 <div data-uk-filter="<?= implode(',', $project->tags) ?>">

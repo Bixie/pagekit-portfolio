@@ -1,10 +1,10 @@
 <?php
 
-namespace Pagekit\Portfolio\Controller;
+namespace Bixie\Portfolio\Controller;
 
 use Pagekit\Application as App;
 use Pagekit\Module\Module;
-use Pagekit\Portfolio\Model\Project;
+use Bixie\Portfolio\Model\Project;
 
 class SiteController
 {
@@ -18,7 +18,7 @@ class SiteController
      */
     public function __construct()
     {
-        $this->portfolio = App::module('portfolio');
+        $this->portfolio = App::module('bixie/portfolio');
     }
 
     /**
@@ -45,7 +45,7 @@ class SiteController
         return [
             '$view' => [
                 'title' => $this->portfolio->config('portfolio_title') ?: App::node()->title,
-                'name' => 'portfolio/portfolio.php'
+                'name' => 'bixie/portfolio:views/portfolio.php'
             ],
 			'tags' => Project::allTags(),
       		'portfolio' => $this->portfolio,
@@ -73,7 +73,7 @@ class SiteController
         return [
             '$view' => [
                 'title' => __($project->title),
-                'name' => 'portfolio/project.php'
+                'name' => 'bixie/portfolio:views/project.php'
             ],
             'portfolio' => $this->portfolio,
 			'config' => $this->portfolio->config(),

@@ -1,10 +1,10 @@
 <?php
 
-namespace Pagekit\Portfolio\Controller;
+namespace Bixie\Portfolio\Controller;
 
 use Pagekit\Application as App;
-use Pagekit\Portfolio\Model\Project;
-use Pagekit\Portfolio\PortfolioImageHelper;
+use Bixie\Portfolio\Model\Project;
+use Bixie\Portfolio\PortfolioImageHelper;
 
 /**
  * @Route("image", name="image")

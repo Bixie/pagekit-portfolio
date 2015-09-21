@@ -36,7 +36,7 @@ return [
         }
 
 		// remove the config
-		$app['config']->remove('portfolio');
+		$app['config']->remove('bixie/portfolio');
 
 	}
 

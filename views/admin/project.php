@@ -1,4 +1,4 @@
-<?php  $view->style('codemirror'); $view->script('admin-project', 'portfolio:app/bundle/admin-project.js', ['vue', 'editor']); ?>
+<?php  $view->style('codemirror'); $view->script('admin-project', 'bixie/portfolio:app/bundle/admin-project.js', ['vue', 'editor']); ?>
 
 <form id="project-edit" class="uk-form" name="form" v-on="valid: save" v-cloak>
 

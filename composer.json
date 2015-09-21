@@ -1,5 +1,6 @@
 {
   "name": "bixie/portfolio",
+  "module": "bixie/portfolio",
   "type": "pagekit-extension",
   "version": "1.0.0",
   "title": "Portfolio",

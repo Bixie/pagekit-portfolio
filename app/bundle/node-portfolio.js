@@ -65,7 +65,7 @@
 	        }
 
 	    };
-
+	    //todo name conflict??
 	    window.Site.components['portfolio'] = module.exports;
 
 /***/ },

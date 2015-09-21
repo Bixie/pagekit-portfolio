@@ -1,9 +1,9 @@
 <?php
 
-namespace Pagekit\Portfolio\Controller;
+namespace Bixie\Portfolio\Controller;
 
 use Pagekit\Application as App;
-use Pagekit\Portfolio\Model\Project;
+use Bixie\Portfolio\Model\Project;
 
 /**
  * @Access("portfolio: manage portfolio")
@@ -33,7 +33,7 @@ class ProjectApiController
             $order = [1 => 'date', 2 => 'desc'];
         }
 
-        $limit = (int) $limit ?: App::module('portfolio')->config('projects_per_page');
+        $limit = (int) $limit ?: App::module('bixie/portfolio')->config('projects_per_page');
         $count = $query->count();
         $pages = ceil($count / $limit);
         $page  = max(0, min($pages - 1, $page));

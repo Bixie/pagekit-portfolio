@@ -1,4 +1,4 @@
-<?php $view->style('codemirror'); $view->script('portfolio-settings', 'portfolio:app/bundle/portfolio-settings.js', ['vue', 'editor', 'uikit-nestable']) ?>
+<?php $view->style('codemirror'); $view->script('portfolio-settings', 'bixie/portfolio:app/bundle/portfolio-settings.js', ['vue', 'editor', 'uikit-nestable']) ?>
 
 <div id="portfolio-settings" class="uk-form">
 

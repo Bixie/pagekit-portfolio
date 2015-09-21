@@ -1,6 +1,6 @@
 <?php
 
-namespace Pagekit\Portfolio\Model;
+namespace Bixie\Portfolio\Model;
 
 use Pagekit\Application as App;
 use Pagekit\System\Model\DataModelTrait;

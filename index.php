@@ -1,17 +1,17 @@
 <?php
 
-use Pagekit\Portfolio\Event\RouteListener;
-use \Pagekit\Portfolio\PortfolioImageHelper;
+use Bixie\Portfolio\Event\RouteListener;
+use Bixie\Portfolio\PortfolioImageHelper;
 
 return [
 
-	'name' => 'portfolio',
+	'name' => 'bixie/portfolio',
 
 	'type' => 'extension',
 
 	'autoload' => [
 
-		'Pagekit\\Portfolio\\' => 'src'
+		'Bixie\\Portfolio\\' => 'src'
 
 	],
 
@@ -20,7 +20,7 @@ return [
 		'portfolio' => [
 			'name' => '@portfolio',
 			'label' => 'Portfolio',
-			'controller' => 'Pagekit\\Portfolio\\Controller\\SiteController',
+			'controller' => 'Bixie\\Portfolio\\Controller\\SiteController',
 			'protected' => true,
 			'frontpage' => true
 		]
@@ -32,14 +32,14 @@ return [
 		'/portfolio' => [
 			'name' => '@portfolio',
 			'controller' => [
-				'Pagekit\\Portfolio\\Controller\\PortfolioController'
+				'Bixie\\Portfolio\\Controller\\PortfolioController'
 			]
 		],
 		'/api/portfolio' => [
 			'name' => '@portfolio/api',
 			'controller' => [
-				'Pagekit\\Portfolio\\Controller\\ProjectApiController',
-				'Pagekit\\Portfolio\\Controller\\ImageApiController'
+				'Bixie\\Portfolio\\Controller\\ProjectApiController',
+				'Bixie\\Portfolio\\Controller\\ImageApiController'
 			]
 		]
 
@@ -47,7 +47,7 @@ return [
 
 	'resources' => [
 
-		'portfolio:' => ''
+		'bixie/portfolio:' => ''
 
 	],
 
@@ -55,7 +55,7 @@ return [
 
 		'portfolio' => [
 			'label' => 'Portfolio',
-			'icon' => 'portfolio:icon.svg',
+			'icon' => 'bixie/portfolio:icon.svg',
 			'url' => '@portfolio/project',
 			'access' => 'portfolio: manage portfolio',
 			'active' => '@portfolio/project*'
@@ -178,12 +178,12 @@ return [
 
 			$scripts->register('uikit-grid', 'app/assets/uikit/js/components/grid.min.js', 'uikit');
 			$scripts->register('uikit-lightbox', 'app/assets/uikit/js/components/lightbox.min.js', 'uikit');
-			$scripts->register('node-portfolio', 'portfolio:app/bundle/node-portfolio.js', '~site-edit');
+			$scripts->register('node-portfolio', 'bixie/portfolio:app/bundle/node-portfolio.js', '~site-edit');
 		},
 
         'console.init' => function ($event, $console) {
 
-			$console->add(new \Pagekit\Portfolio\Console\Commands\PortfolioTranslateCommand());
+			$console->add(new Bixie\Portfolio\Console\Commands\PortfolioTranslateCommand());
 
 		}
 	]

@@ -1,15 +1,15 @@
 <?php
 
-namespace Pagekit\Portfolio;
+namespace Bixie\Portfolio;
 
 use Pagekit\Application as App;
-use Pagekit\Portfolio\Model\Project;
+use Bixie\Portfolio\Model\Project;
 use Pagekit\Routing\ParamsResolverInterface;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class UrlResolver implements ParamsResolverInterface
 {
-	const CACHE_KEY = 'portfolio.routing';
+	const CACHE_KEY = 'bixie.portfolio.routing';
 
 	/**
 	 * @var bool
