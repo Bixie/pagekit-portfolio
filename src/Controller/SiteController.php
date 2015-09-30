@@ -51,7 +51,8 @@ class SiteController
       		'portfolio' => $this->portfolio,
 			'config' => $this->portfolio->config(),
 			'portfolio_text' => $portfolio_text,
-            'projects' => $projects
+            'projects' => $projects,
+			'node' => App::node()
         ];
     }
 
@@ -79,7 +80,8 @@ class SiteController
 			'config' => $this->portfolio->config(),
 			'previous' => $previous,
 			'next' => $next,
-			'project' => $project
+			'project' => $project,
+			'node' => App::node()
         ];
     }
 }
