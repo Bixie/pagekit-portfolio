@@ -62,7 +62,7 @@ class Project implements \JsonSerializable
 	}
 
 	public static function getPrevious ($project) {
-		return self::where(['date > ?'], [$project->date])->orderBy('date', 'ASC')->first();
+		return self::where(['date > ?', 'date < ?'], [$project->date, new \DateTime])->orderBy('date', 'ASC')->first();
 	}
 
 	public static function getNext ($project) {
