@@ -51,6 +51,7 @@ class PortfolioController
 				$project = Project::create([
 					'data' => [],
 					'tags' => [],
+					'status' => 1,
 					'date' => new \DateTime()
 				]);
 
