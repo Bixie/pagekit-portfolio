@@ -10,6 +10,8 @@
 
 			<div class="uk-margin-left" v-show="selected.length">
 				<ul class="uk-subnav pk-subnav-icon">
+					<li><a class="pk-icon-check pk-icon-hover" title="Publish" data-uk-tooltip="{delay: 500}" v-on="click: status(1)"></a></li>
+					<li><a class="pk-icon-block pk-icon-hover" title="Unpublish" data-uk-tooltip="{delay: 500}" v-on="click: status(0)"></a></li>
 					<li><a class="pk-icon-delete pk-icon-hover" title="{{ 'Delete' | trans }}"
 						   data-uk-tooltip="{delay: 500}" v-on="click: removeProjects"
 						   v-confirm="'Delete project? All data will be deleted from the database.' | trans"></a>
