@@ -10,10 +10,19 @@ use Pagekit\System\Model\DataModelTrait;
  */
 class Project implements \JsonSerializable
 {
-    use  DataModelTrait, ProjectModelTrait;
+    use DataModelTrait, ProjectModelTrait;
 
-    /** @Column(type="integer") @Id */
+	/* Project published. */
+	const STATUS_PUBLISHED = 1;
+
+	/* Project unpublished. */
+	const STATUS_UNPUBLISHED = 0;
+
+	/** @Column(type="integer") @Id */
     public $id;
+
+    /** @Column(type="integer") */
+    public $status;
 
     /** @Column(type="integer") */
     public $priority;
@@ -61,12 +70,26 @@ class Project implements \JsonSerializable
 		return $tags;
 	}
 
+	public static function getStatuses () {
+		return [
+			self::STATUS_PUBLISHED => __('Published'),
+			self::STATUS_UNPUBLISHED => __('Unpublished')
+		];
+	}
+
+	public function getStatusText () {
+		$statuses = self::getStatuses();
+
+		return isset($statuses[$this->status]) ? $statuses[$this->status] : __('Unknown');
+	}
+
+
 	public static function getPrevious ($project) {
-		return self::where(['date > ?', 'date < ?'], [$project->date, new \DateTime])->orderBy('date', 'ASC')->first();
+		return self::where(['date > ?', 'date < ?', 'status = 1'], [$project->date, new \DateTime])->orderBy('date', 'ASC')->first();
 	}
 
 	public static function getNext ($project) {
-		return self::where(['date < ?'], [$project->date])->orderBy('date', 'DESC')->first();
+		return self::where(['date < ?', 'status = 1'], [$project->date])->orderBy('date', 'DESC')->first();
 	}
     /**
      * {@inheritdoc}

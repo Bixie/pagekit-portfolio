@@ -11,7 +11,19 @@ module.exports = {
 
     created: function () {
         this.resource = this.$resource('api/portfolio/project/:id');
-        this.config.filter = _.extend({ search: '', order: 'date desc', limit: 25}, this.config.filter);
+        this.config.filter = _.extend({ search: '', status: '', order: 'date desc', limit: 25}, this.config.filter);
+    },
+
+    computed: {
+
+        statusOptions: function () {
+
+            var options = _.map(this.statuses, function (status, id) {
+                return { text: status, value: id };
+            });
+
+            return [{ label: this.$trans('Filter by'), options: options }];
+        }
     },
 
     methods: {
@@ -33,6 +45,32 @@ module.exports = {
             });
         },
 
+        save: function (project) {
+            this.resource.save({ id: project.id }, { project: project }, function (data) {
+                this.load();
+                this.$notify('Project saved.');
+            });
+        },
+
+        status: function (status) {
+
+            var projects = this.getSelected();
+
+            projects.forEach(function (project) {
+                project.status = status;
+            });
+
+            this.resource.save({ id: 'bulk' }, { projects: projects }, function (data) {
+                this.load();
+                this.$notify('Projects saved.');
+            });
+        },
+
+        toggleStatus: function (project) {
+            project.status = project.status === 0 ? 1 : 0;
+            this.save(project);
+        },
+
         getSelected: function () {
             return this.projects.filter(function (project) {
                 return this.selected.indexOf(project.id) !== -1;
@@ -45,6 +83,10 @@ module.exports = {
                 this.load();
                 this.$notify('Project(s) deleted.');
             });
+        },
+
+        getStatusText: function(file) {
+            return this.statuses[file.status];
         }
 
     },

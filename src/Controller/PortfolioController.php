@@ -22,7 +22,8 @@ class PortfolioController
                 'name'  => 'bixie/portfolio/admin/portfolio.php'
             ],
             '$data' => [
-                'config'   => [
+				'statuses' => Project::getStatuses(),
+				'config'   => [
                     'filter' => $filter,
                     'page'   => $page
                 ]
@@ -64,6 +65,7 @@ class PortfolioController
                     'name'  => 'bixie/portfolio/admin/project.php'
                 ],
                 '$data' => [
+					'statuses' => Project::getStatuses(),
 					'config' => App::module('bixie/portfolio')->config(),
                 	'project'  => $project,
                     'tags'     => Project::allTags()

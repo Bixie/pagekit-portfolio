@@ -30,7 +30,7 @@ class SiteController
             App::abort(403, __('Insufficient User Rights.'));
         }
 
-        $query = Project::where(['date < ?'], [new \DateTime])->orderBy('date', 'DESC');
+        $query = Project::where(['date < ?', 'status = 1'], [new \DateTime])->orderBy('date', 'DESC');
 
 		$portfolio_text = '';
 		if ($this->portfolio->config('portfolio_text')) {
@@ -61,7 +61,7 @@ class SiteController
      */
     public function projectAction($id = 0)
     {
-        if (!$project = Project::where(['id = ?', 'date < ?'], [$id, new \DateTime])->first()) {
+        if (!$project = Project::where(['id = ?', 'date < ?', 'status = 1'], [$id, new \DateTime])->first()) {
             App::abort(404, __('Project not found.'));
         }
 

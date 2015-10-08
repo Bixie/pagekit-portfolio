@@ -58,6 +58,13 @@
                 </div>
 
                 <div class="uk-form-row">
+                    <label for="form-status" class="uk-form-label">{{ 'Status' | trans }}</label>
+                    <div class="uk-form-controls">
+                        <select id="form-status" class="uk-width-1-1" v-model="project.status" options="statusOptions"></select>
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
                     <label for="form-client" class="uk-form-label">{{ 'Client' | trans }}</label>
 
                     <div class="uk-form-controls">
@@ -98,7 +105,15 @@
 
     module.exports = {
 
-        inherit: true
+        inherit: true,
+
+        computed: {
+
+            statusOptions: function () {
+                return _.map(this.statuses, function (status, id) { return { text: status, value: id }; });
+            }
+
+        }
 
     };
 

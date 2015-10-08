@@ -18,7 +18,7 @@ class ProjectApiController
     public function indexAction($filter = [], $page = 0)
     {
         $query  = Project::query();
-        $filter = array_merge(array_fill_keys(['search', 'order', 'limit'], ''), $filter);
+        $filter = array_merge(array_fill_keys(['search', 'status', 'order', 'limit'], ''), $filter);
 
         extract($filter, EXTR_SKIP);
 
@@ -28,8 +28,11 @@ class ProjectApiController
             });
         }
 
+		if (is_numeric($status)) {
+			$query->where(['status' => (int) $status]);
+		}
 
-        if (!preg_match('/^(date|title|comment_count)\s(asc|desc)$/i', $order, $order)) {
+		if (!preg_match('/^(date|title|status)\s(asc|desc)$/i', $order, $order)) {
             $order = [1 => 'date', 2 => 'desc'];
         }
 
