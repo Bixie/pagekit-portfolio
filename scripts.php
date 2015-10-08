@@ -62,6 +62,8 @@ return [
 					$table->addColumn('status', 'smallint');
 					$table->addIndex(['status'], 'PORTFOLIO_PROJECT_STATUS');
 					$util->alterTable((new Comparator())->diffTable($util->listTableDetails('@portfolio_project'), $table));
+					$app['db']->executeQuery('UPDATE @portfolio_project SET status = 1');
+
 				}
 
 			}
