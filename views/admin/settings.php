@@ -102,7 +102,28 @@
 						</div>
 					</div>
 
-					<?= $view->render('bixie/portfolio/admin/settings_project.php') ?>
+					<div class="uk-form-horizontal">
+
+						<div class="uk-form-row">
+							<label for="form-project_image_align" class="uk-form-label">{{ 'Thumbs size' | trans }}</label>
+
+							<div class="uk-form-controls uk-form-controls-text">
+								<p class="uk-form-controls-condensed">
+									<label class="uk-form-label" style="width: 70px">{{ 'Width' | trans }}</label>
+									<input type="number" placeholder="{{ 'Auto' | trans }}" class="uk-form-width-small" v-model="config.project.thumbsize.width">
+								</p>
+								<p class="uk-form-controls-condensed">
+									<label class="uk-form-label" style="width: 70px">{{ 'Height' | trans }}</label>
+									<input type="number" placeholder="{{ 'Auto' | trans }}" class="uk-form-width-small" v-model="config.project.thumbsize.height">
+
+								</p>
+
+							</div>
+						</div>
+
+						<fields config="{{ $options.fields.project }}" model="{{@ config }}" template="formrow"></fields>
+
+					</div>
 
 				</li>
 				<li>
@@ -121,43 +142,8 @@
 					</div>
 
 					<div class="uk-form-horizontal">
-						<div class="uk-form-row">
-							<label class="uk-form-label">{{ 'Projects per page' | trans }}</label>
 
-							<div class="uk-form-controls uk-form-controls-text">
-								<p class="uk-form-controls-condensed">
-									<input type="number" v-model="config.projects_per_page" class="uk-form-width-small">
-								</p>
-							</div>
-						</div>
-
-						<div class="uk-form-row">
-							<span class="uk-form-label">{{ 'Markdown' | trans }}</span>
-
-							<div class="uk-form-controls uk-form-controls-text">
-								<p class="uk-form-controls-condensed">
-									<label><input type="checkbox" v-model="config.markdown_enabled"> {{ 'Enable
-										Markdown' | trans }}</label>
-								</p>
-							</div>
-						</div>
-
-						<div class="uk-form-row">
-							<label for="form-date_format" class="uk-form-label">{{ 'Date format' | trans }}</label>
-
-							<div class="uk-form-controls">
-								<select name="date_format" id="form-date_format" class="uk-form-width-small"
-										v-model="config.date_format">
-									<option value="F Y">{{ 'January 2015' | trans }}</option>
-									<option value="F d Y">{{ 'January 15 2015' | trans }}</option>
-									<option value="d F Y">{{ '15 January 2015' | trans }}</option>
-									<option value="M Y">{{ 'Jan 2015' | trans }}</option>
-									<option value="m Y">{{ '1 2015' | trans }}</option>
-									<option value="m-d-Y">{{ '1-15-2015' | trans }}</option>
-									<option value="d-m-Y">{{ '15-1-2015' | trans }}</option>
-								</select>
-							</div>
-						</div>
+						<fields config="{{ $options.fields.general }}" model="{{@ config }}" template="formrow"></fields>
 
 						<div class="uk-form-row">
 							<span class="uk-form-label">{{ 'Image thumbs cache' | trans }}</span>

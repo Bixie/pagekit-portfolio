@@ -4,6 +4,8 @@ module.exports = Vue.extend({
         return window.$data;
     },
 
+    fields: require('../../settings/fields'),
+
     ready: function () {
         var vm = this;
         UIkit.nestable(this.$$.datafieldsNestable, {
@@ -105,6 +107,12 @@ module.exports = Vue.extend({
     }
 
 });
+
+Vue.field.templates.formrow = require('../../templates/formrow.html');
+Vue.field.types.checkbox = '<p class="uk-form-controls-condensed"><label><input type="checkbox" v-attr="attrs" v-model="value"> {{ optionlabel | trans }}</label></p>';
+Vue.field.types.number = '<input type="number" v-attr="attrs" v-model="value" number>';
+Vue.field.types.title = '<h3>{{ title | trans }}</h3>';
+
 
 $(function () {
 
