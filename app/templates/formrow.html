@@ -1,6 +1,7 @@
-<div class="uk-form-row" v-repeat="field in fields">
-    <label class="uk-form-label">{{ field.label | trans }}</label>
-    <div class="uk-form-controls">
+<div v-repeat="field in fields" v-class="uk-form-row: !field.raw">
+    <label v-if="field.label" class="uk-form-label">{{ field.label | trans }}</label>
+    <div v-if="!field.raw" class="uk-form-controls" v-class="uk-form-controls-text: ['checkbox', 'radio'].indexOf(field.type)>-1">
         <field config="{{ field }}" values="{{@ values }}"></field>
     </div>
+    <field v-if="field.raw" config="{{ field }}" values="{{@ values }}"></field>
 </div>

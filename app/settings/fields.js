@@ -1,6 +1,12 @@
 
 var options = require('./options');
 
+Vue.field.templates.formrow = require('../templates/formrow.html');
+Vue.field.templates.raw = require('../templates/raw.html');
+Vue.field.types.checkbox = '<p class="uk-form-controls-condensed"><label><input type="checkbox" v-attr="attrs" v-model="value"> {{ optionlabel | trans }}</label></p>';
+Vue.field.types.number = '<input type="number" v-attr="attrs" v-model="value" number>';
+Vue.field.types.title = '<h3 v-attr="attrs">{{ title | trans }}</h3>';
+
 module.exports = {
     portfolio: {
         'portfolio_image_align': {
@@ -15,9 +21,11 @@ module.exports = {
             optionlabel: 'Filter by tags'
         },
         'title1': {
+            raw: true,
             type: 'title',
             label: '',
-            title: 'Project columns'
+            title: 'Project columns',
+            attrs: {'class': 'uk-margin-top'}
         },
         'columns': {
             type: 'select',
@@ -56,9 +64,11 @@ module.exports = {
             attrs: {'class': 'uk-form-width-small'}
         },
         'title2': {
+            raw: true,
             type: 'title',
             label: '',
-            title: 'Teaser thumbs columns'
+            title: 'Teaser thumbs columns',
+            attrs: {'class': 'uk-margin-top'}
         },
         'teaser.columns': {
             type: 'select',
@@ -91,12 +101,7 @@ module.exports = {
             attrs: {'class': 'uk-form-width-small'}
         }
     },
-    teaser_top: {
-        'title1': {
-            type: 'title',
-            label: '',
-            title: 'Teaser settings'
-        },
+    teaser_show: {
         'teaser.show_title': {
             type: 'checkbox',
             label: 'Show content',
@@ -133,7 +138,9 @@ module.exports = {
         'teaser.show_readmore': {
             type: 'checkbox',
             optionlabel: 'Show readmore'
-        },
+        }
+    },
+    teaser_top: {
         'teaser.template': {
             type: 'select',
             label: 'Teaser template',
@@ -335,9 +342,11 @@ module.exports = {
             attrs: {'class': 'uk-form-width-medium'}
         },
         'title1': {
+            raw: true,
             type: 'title',
             label: '',
-            title: 'Image columns'
+            title: 'Image columns',
+            attrs: {'class': 'uk-margin-top'}
         },
         'project.columns': {
             type: 'select',
