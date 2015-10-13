@@ -67,7 +67,7 @@ class PortfolioImageHelper extends Helper {
 		$resource = array_replace(['src' => ''], $resource);
 		if (!file_exists($resource['src'])) {
 
-			$resource['src'] = '/packages/bixie/portfolio/assets/noimage.jpg';
+			$resource['src'] = 'packages/bixie/portfolio/assets/noimage.jpg';
 			$resource['filename'] = 'noimage.jpg';
 			$resource['title'] = 'No image found';
 
@@ -102,7 +102,7 @@ class PortfolioImageHelper extends Helper {
 				$image->save($cachepath);
 			}
 
-			return str_replace(App::path(), '', $cachepath);
+			return trim(str_replace(App::path(), '', $cachepath), '/');
 
 		} catch (\Exception $e) {
 			return false;
