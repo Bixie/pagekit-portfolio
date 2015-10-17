@@ -62,7 +62,7 @@ class PortfolioController
 
             return [
                 '$view' => [
-                    'title' => $id ? __('Edit Project') : __('Add Project'),
+                    'title' => $id ? __('Edit project') : __('Add project'),
                     'name'  => 'bixie/portfolio/admin/project.php'
                 ],
                 '$data' => [
@@ -89,7 +89,7 @@ class PortfolioController
     {
         return [
             '$view' => [
-                'title' => __('Portfolio Settings'),
+                'title' => __('Portfolio settings'),
                 'name'  => 'bixie/portfolio/admin/settings.php'
             ],
             '$data' => [

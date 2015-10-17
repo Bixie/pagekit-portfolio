@@ -64,7 +64,7 @@ class ProjectApiController
         if (!$id || !$project = Project::find($id)) {
 
             if ($id) {
-                App::abort(404, __('Post not found.'));
+                App::abort(404, __('Project not found.'));
             }
 
 			$project = Project::create();

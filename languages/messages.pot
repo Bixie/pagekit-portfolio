@@ -1,0 +1,206 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pagekit UNKNOWN (bixie/portfolio, messages)\n"
+"POT-Creation-Date: 2015-10-17 10:47+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Filter by"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Image title"
+msgstr ""
+
+msgid "Main image"
+msgstr ""
+
+msgid "Existing"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Project %title% saved."
+msgstr ""
+
+msgid "Select folder"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Subtitle"
+msgstr ""
+
+msgid "Intro"
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
+msgid "Slug"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "Options"
+msgstr ""
+
+msgid "Enable Markdown"
+msgstr ""
+
+msgid "Image description"
+msgstr ""
+
+msgid "Show in teaser"
+msgstr ""
+
+msgid "Teaser image"
+msgstr ""
+
+msgid "Image folder"
+msgstr ""
+
+msgid "Select the folder by checking the checkbox in front of the name! Click \"Select\" button at bottom to confirm."
+msgstr ""
+
+msgid "Images in the folder are sorted by alphabet. Numbers in front of the filename are removed, so you can influence the ordering by naming your images with numbers."
+msgstr ""
+
+msgid "Portfolio"
+msgstr ""
+
+msgid "Invalid project id."
+msgstr ""
+
+msgid "Edit project"
+msgstr ""
+
+msgid "Add project"
+msgstr ""
+
+msgid "Portfolio settings"
+msgstr ""
+
+msgid "Project not found."
+msgstr ""
+
+msgid "Invalid slug."
+msgstr ""
+
+msgid "Access denied."
+msgstr ""
+
+msgid "Insufficient User Rights."
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Unpublished"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid "No projects found."
+msgstr ""
+
+msgid "{0} %count% Projects|{1} %count% Project|]1,Inf[ %count% Projects"
+msgstr ""
+
+msgid "{1} %count% Project selected|]1,Inf[ %count% Projects selected"
+msgstr ""
+
+msgid "Preview project"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "Data"
+msgstr ""
+
+msgid "Portfolio content"
+msgstr ""
+
+msgid "Project settings"
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "Data fields"
+msgstr ""
+
+msgid "Portfolio title"
+msgstr ""
+
+msgid "Portfolio text"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Teaser settings"
+msgstr ""
+
+msgid "Show content"
+msgstr ""
+
+msgid "Thumbs size"
+msgstr ""
+
+msgid "Width"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "Height"
+msgstr ""
+
+msgid "Image thumbs cache"
+msgstr ""
+
+msgid "Clear cache"
+msgstr ""
+
+msgid "Custom data fields"
+msgstr ""
+
+msgid "Add option"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
