@@ -182,7 +182,7 @@ return [
 
         'console.init' => function ($event, $console) {
 
-			$console->add(new Bixie\Portfolio\Console\Commands\PortfolioTranslateCommand());
+			$console->add(new Bixie\Portfolio\Console\Commands\TranslateCommand());
 
 		}
 	]

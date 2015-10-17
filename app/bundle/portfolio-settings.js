@@ -155,6 +155,12 @@
 
 	});
 
+	Vue.field.templates.formrow = __webpack_require__(27);
+	Vue.field.templates.raw = __webpack_require__(28);
+	Vue.field.types.checkbox = '<p class="uk-form-controls-condensed"><label><input type="checkbox" v-attr="attrs" v-model="value"> {{ optionlabel | trans }}</label></p>';
+	Vue.field.types.number = '<input type="number" v-attr="attrs" v-model="value" number>';
+	Vue.field.types.title = '<h3 v-attr="attrs">{{ title | trans }}</h3>';
+
 	$(function () {
 
 	    (new module.exports()).$mount('#portfolio-settings');
@@ -169,12 +175,6 @@
 
 	
 	var options = __webpack_require__(26);
-
-	Vue.field.templates.formrow = __webpack_require__(27);
-	Vue.field.templates.raw = __webpack_require__(28);
-	Vue.field.types.checkbox = '<p class="uk-form-controls-condensed"><label><input type="checkbox" v-attr="attrs" v-model="value"> {{ optionlabel | trans }}</label></p>';
-	Vue.field.types.number = '<input type="number" v-attr="attrs" v-model="value" number>';
-	Vue.field.types.title = '<h3 v-attr="attrs">{{ title | trans }}</h3>';
 
 	module.exports = {
 	    portfolio: {
@@ -422,7 +422,7 @@
 	        },
 	        'teaser.readmore_align': {
 	            type: 'select',
-	            label: 'Readore alignment',
+	            label: 'Readmore alignment',
 	            options: options.align.text,
 	            attrs: {'class': 'uk-form-width-medium'}
 	        }
@@ -437,7 +437,7 @@
 	        'project.metadata_position': {
 	            type: 'select',
 	            label: 'Metadata position',
-	            options: options.position,
+	            options: options.position.page,
 	            attrs: {'class': 'uk-form-width-medium'}
 	        },
 	        'project.tags_align': {
