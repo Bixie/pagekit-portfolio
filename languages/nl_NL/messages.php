@@ -114,7 +114,7 @@
   'Teaser image' => 'Teaser afbeelding',
   'Image folder' => 'Afbeeldingsmap',
   'Select the folder by checking the checkbox in front of the name! Click "Select" button at bottom to confirm.' => 'Selecteer de map door de checkbox voor de naam aan te vinken! klik "Selecteer" knop beneden om te bevestigen.',
-  'Images in the folder are sorted by alphabet. Numbers in front of the filename are removed, so you can influence the ordering by naming your images with numbers.' => 'Afbeeldingen in de map worden gesorteerd op alfabet. Getallen voor de bestandsnaam worden verwijderd, dus je kunt de volgorde beïnvloeden door nummers voor de bestandsnaam te plaatsen.',
+  'Images in the folder are sorted by alphabet. Numbers in front of the filename are removed, so you can influence the ordering by naming your images with numbers.' => 'Afbeeldingen in de map worden gesorteerd op alfabet. Getallen voor de bestandsnaam worden verwijderd, dus je kunt de volgorde beÃ¯nvloeden door nummers voor de bestandsnaam te plaatsen.',
   'Portfolio' => 'Portfolio',
   'Invalid project id.' => 'Ongeldig project id.',
   'Edit project' => 'Bewerk project',
