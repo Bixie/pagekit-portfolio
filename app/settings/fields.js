@@ -125,6 +125,10 @@ module.exports = {
             type: 'checkbox',
             optionlabel: 'Show tags'
         },
+        'teaser.show_thumbs': {
+            type: 'checkbox',
+            optionlabel: 'Show thumbs'
+        },
         'teaser.show_data': {
             type: 'checkbox',
             optionlabel: 'Show data'
