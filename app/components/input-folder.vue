@@ -1,21 +1,22 @@
 <template>
 
-    <div v-on="click: pick" class="{{ class }}">
+    <div @click="pick" :class="class">
         <ul class="uk-float-right uk-subnav pk-subnav-icon">
-            <li><a class="pk-icon-delete pk-icon-hover" title="{{ 'Delete' | trans }}" data-uk-tooltip="{delay: 500, 'pos': 'left'}" v-on="click: remove"></a></li>
+            <li><a class="pk-icon-delete pk-icon-hover" :title="'Delete' | trans"
+                   data-uk-tooltip="{delay: 500, 'pos': 'left'}" @click="remove"></a></li>
         </ul>
         <a class="pk-icon-folder-circle uk-margin-right"></a>
         <a v-if="!folder" class="uk-text-muted">{{ 'Select folder' | trans }}</a>
-        <a v-if="folder">{{ folder }}</a>
+        <a v-else>{{ folder }}</a>
     </div>
 
-    <v-modal v-ref="modal" large>
+    <v-modal v-ref:modal large>
 
-        <panel-finder root="{{ storage }}" v-ref="finder" modal="true"></panel-finder>
+        <panel-finder :root="storage" v-ref:finder modal></panel-finder>
 
         <div class="uk-modal-footer uk-text-right">
             <button class="uk-button uk-button-link uk-modal-close" type="button">{{ 'Cancel' | trans }}</button>
-            <button class="uk-button uk-button-primary" type="button" v-attr="disabled: !hasSelection()" v-on="click: select()">{{ 'Select' | trans }}</button>
+            <button class="uk-button uk-button-primary" type="button" :disabled="!hasSelection()" @click="select()">{{ 'Select' | trans }}</button>
         </div>
 
     </v-modal>
@@ -29,23 +30,20 @@
         props: ['folder', 'class'],
 
         data: function () {
-            return _.merge({
-                'folder': '',
-                'class': ''
-            }, $pagekit);
+            return $pagekit;
         },
 
         methods: {
 
             pick: function() {
-                this.$.modal.open();
+                this.$refs.modal.open();
             },
 
             select: function() {
-                this.folder = this.$.finder.getSelected()[0];
+                this.folder = this.$refs.finder.getSelected()[0];
                 this.$dispatch('folder-selected', this.folder);
-                this.$.finder.removeSelection();
-                this.$.modal.close();
+                this.$refs.finder.removeSelection();
+                this.$refs.modal.close();
             },
 
             remove: function(e) {
@@ -54,7 +52,7 @@
             },
 
             hasSelection: function() {
-                var selected = this.$.finder.getSelected();
+                var selected = this.$refs.finder.getSelected();
                 return selected.length === 1 && !selected[0].match(/\.(.+)$/i);
             }
 

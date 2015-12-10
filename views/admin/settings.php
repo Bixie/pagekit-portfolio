@@ -31,7 +31,7 @@
 						</div>
 						<div data-uk-margin>
 
-							<button class="uk-button uk-button-primary" v-on="click: save">{{ 'Save' | trans }}</button>
+							<button class="uk-button uk-button-primary" @click="save">{{ 'Save' | trans }}</button>
 
 						</div>
 					</div>
@@ -54,8 +54,8 @@
 							<span class="uk-form-label">{{ 'Portfolio text' | trans }}</span>
 
 							<div class="uk-form-controls">
-								<v-editor id="form-intro" value="{{@ config.portfolio_text }}"
-										  options="{{ {markdown : config.markdown_enabled, height: 250} }}"></v-editor>
+								<v-editor id="form-intro" :value.sync="config.portfolio_text"
+										  :options="{markdown : config.markdown_enabled, height: 250}"></v-editor>
 							</div>
 						</div>
 					</div>
@@ -64,7 +64,7 @@
 					<div class="uk-form-row">
 						<label class="uk-form-label">{{ 'Image' | trans }}</label>
 						<div class="uk-form-controls">
-							<input-image source="{{@ config.portfolio_image }}" class="pk-image-max-height"></input-image>
+							<input-image :source="config.portfolio_image" class="pk-image-max-height"></input-image>
 						</div>
 					</div>
 
@@ -79,14 +79,14 @@
 						</div>
 						<div data-uk-margin>
 
-							<button class="uk-button uk-button-primary" v-on="click: save">{{ 'Save' | trans }}</button>
+							<button class="uk-button uk-button-primary" @click="save">{{ 'Save' | trans }}</button>
 
 						</div>
 					</div>
 
 					<div class="uk-grid uk-grid-width-large-1-2 uk-form-horizontal" data-uk-grid-margin="">
 						<div>
-							<fields config="{{ $options.fields.portfolio }}" model="{{@ config }}" template="formrow"></fields>
+							<fields :config="$options.fields.portfolio" :model.sync="config" template="formrow"></fields>
 
 						</div>
 						<div>
@@ -97,16 +97,16 @@
 
 								<div class="uk-form-controls uk-form-controls-text">
 
-									<fields config="{{ $options.fields.teaser_show }}" model="{{@ config }}" template="raw"></fields>
+									<fields :config="$options.fields.teaser_show" :model.sync="config" template="raw"></fields>
 
 								</div>
 							</div>
 
-							<fields config="{{ $options.fields.teaser_top }}" model="{{@ config }}" template="formrow"></fields>
+							<fields :config="$options.fields.teaser_top" :model.sync="config" template="formrow"></fields>
 
-							<fields config="{{ $options.fields.template[config.teaser.template] }}" model="{{@ config }}" template="formrow"></fields>
+							<fields :config="$options.fields.template[config.teaser.template]" :model.sync="config" template="formrow"></fields>
 
-							<fields config="{{ $options.fields.teaser_bottom }}" model="{{@ config }}" template="formrow"></fields>
+							<fields :config="$options.fields.teaser_bottom" :model.sync="config" template="formrow"></fields>
 
 							<div class="uk-form-row">
 								<label for="form-project_image_align" class="uk-form-label">{{ 'Thumbs size' | trans }}</label>
@@ -139,7 +139,7 @@
 						</div>
 						<div data-uk-margin>
 
-							<button class="uk-button uk-button-primary" v-on="click: save">{{ 'Save' | trans }}</button>
+							<button class="uk-button uk-button-primary" @click="save">{{ 'Save' | trans }}</button>
 
 						</div>
 					</div>
@@ -163,7 +163,7 @@
 							</div>
 						</div>
 
-						<fields config="{{ $options.fields.project }}" model="{{@ config }}" template="formrow"></fields>
+						<fields :config="$options.fields.project" :model.sync="config" template="formrow"></fields>
 
 					</div>
 
@@ -178,14 +178,14 @@
 						</div>
 						<div data-uk-margin>
 
-							<button class="uk-button uk-button-primary" v-on="click: save">{{ 'Save' | trans }}</button>
+							<button class="uk-button uk-button-primary" @click="save">{{ 'Save' | trans }}</button>
 
 						</div>
 					</div>
 
 					<div class="uk-form-horizontal">
 
-						<fields config="{{ $options.fields.general }}" model="{{@ config }}" template="formrow"></fields>
+						<fields :config="$options.fields.general" :model.sync="config" template="formrow"></fields>
 
 						<div class="uk-form-row">
 							<span class="uk-form-label">{{ 'Image thumbs cache' | trans }}</span>
@@ -194,7 +194,7 @@
 								<p class="uk-form-controls-condensed">
 									<button type="button" class="uk-button"
 											v-confirm="'Clear image cache?' | trans"
-											v-on="click: clearCache">
+											@click="clearCache">
 										{{ 'Clear cache' | trans }}</button>
 								</p>
 							</div>
@@ -212,20 +212,20 @@
 						</div>
 						<div data-uk-margin>
 
-							<button class="uk-button uk-button-primary" v-on="click: save">{{ 'Save' | trans }}</button>
+							<button class="uk-button uk-button-primary" @click="save">{{ 'Save' | trans }}</button>
 
 						</div>
 					</div>
 
 					<div class="uk-form-horizontal">
 
-						<ul class="uk-nestable uk-margin-remove" v-el="datafieldsNestable"
+						<ul class="uk-nestable uk-margin-remove" v-el:datafields-nestable
 							v-show="config.datafields.length">
-							<datafield v-repeat="datafield: config.datafields"></datafield>
+							<datafield v-for="datafield in config.datafields" :datafield="datafield"></datafield>
 						</ul>
 
 						<button type="button" class="uk-button uk-button-primary uk-button-small uk-margin"
-								v-on="click: addDatafield">{{ 'Add option' | trans }}
+								@click="addDatafield">{{ 'Add option' | trans }}
 						</button>
 
 					</div>

@@ -6,7 +6,7 @@
 
                 <div class="uk-overlay uk-overlay-hover uk-visible-hover pk-image-max-height">
 
-                    <img v-attr="src: $url(image.src)" alt="{{ image.filename }}">
+                    <img :src="$url(image.src)" :alt="image.filename">
 
                     <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade"></div>
                 </div>
@@ -46,7 +46,7 @@
 
     module.exports = {
 
-        inherit: true
+        props: ['image']
 
     };
 

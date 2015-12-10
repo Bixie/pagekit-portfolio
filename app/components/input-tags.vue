@@ -1,8 +1,8 @@
 <template>
 
     <div class="uk-flex uk-flex-wrap" data-uk-margin="">
-        <div v-repeat="tag: tags" class="uk-badge uk-margin-small-right">
-            <a class="uk-float-right uk-close" v-on="click: removeTag($event, $index)"></a>
+        <div v-for="tag in tags" class="uk-badge uk-margin-small-right">
+            <a class="uk-float-right uk-close" @click.prevent="removeTag(tag)"></a>
             {{ tag }}
         </div>
     </div>
@@ -14,8 +14,8 @@
 
                 <div class="uk-dropdown uk-dropdown-small">
                     <ul class="uk-nav uk-nav-dropdown">
-                        <li v-repeat="tag: existing"><a
-                                v-on="click: addTag($event, tag)">{{ tag }}</a></li>
+                        <li v-for="tag in existing"><a
+                                @click="addTag(tag)">{{ tag }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -24,7 +24,8 @@
         <div class="uk-flex-item-1 uk-margin-small-left">
             <div class="uk-form-password">
                 <input type="text" class="uk-width-1-1" v-model="newtag">
-                <a class="uk-form-password-toggle" v-on="click: addTag()"><i class="uk-icon-check uk-icon-hover"></i></a>
+                <a class="uk-form-password-toggle" @click.prevent="addTag()" @keyup.enter.prevent="addTag()">
+                    <i class="uk-icon-check uk-icon-hover"></i></a>
             </div>
         </div>
 
@@ -36,23 +37,26 @@
 
     module.exports = {
 
-        props: ['tags', 'existing'],
+        props: {
+            'tags': {
+                type: Array,
+                default: []
+            },
+            'existing': {
+                type: Object,
+                default: {}
+            }
+        },
 
         data: function () {
             return {
-                'newtag': '',
-                'tags': '',
-                'existing': ''
+                'newtag': ''
             };
         },
 
         methods: {
 
-            addTag: function(e, tag) {
-                if (e) {
-                    e.stopImmediatePropagation(); //todo prevent enter from submitting! v-on="keyup:addTag | key 'enter'"
-                    e.preventDefault();
-                }
+            addTag: function(tag) {
                 this.tags.push(tag || this.newtag);
                 this.$nextTick(function () {
                     UIkit.$html.trigger('resize'); //todo why no check.display or changed.dom???
@@ -60,11 +64,8 @@
                 this.newtag = '';
             },
 
-            removeTag: function(e, idx) {
-                if (e) {
-                    e.preventDefault();
-                }
-                this.tags.$remove(idx)
+            removeTag: function(tag) {
+                this.tags.$remove(tag)
             }
 
         }

@@ -1,5 +1,7 @@
 module.exports = {
 
+    el: '#portfolio-projects',
+
     data: function () {
         return _.merge({
             projects: false,
@@ -102,9 +104,5 @@ module.exports = {
 
 };
 
-$(function () {
-
-    new Vue(module.exports).$mount('#portfolio-projects');
-
-});
+Vue.ready(module.exports);
 

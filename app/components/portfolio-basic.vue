@@ -31,8 +31,8 @@
                         <span class="uk-form-label">{{ 'Intro' | trans }}</span>
 
                         <div class="uk-form-controls">
-                            <v-editor id="form-intro" value="{{@ project.intro }}"
-                                      options="{{ {markdown : project.data.markdown, height: 250} }}"></v-editor>
+                            <v-editor id="form-intro" :value.sync="project.intro"
+                                      :options="{markdown : project.data.markdown, height: 250}"></v-editor>
                         </div>
                     </div>
 
@@ -40,8 +40,8 @@
                         <span class="uk-form-label">{{ 'Content' | trans }}</span>
 
                         <div class="uk-form-controls">
-                            <v-editor id="form-content" value="{{@ project.content }}"
-                                      options="{{ {markdown : project.data.markdown} }}"></v-editor>
+                            <v-editor id="form-content" :value.sync="project.content"
+                                      :options="{markdown : project.data.markdown}"></v-editor>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,9 @@
                 <div class="uk-form-row">
                     <label for="form-status" class="uk-form-label">{{ 'Status' | trans }}</label>
                     <div class="uk-form-controls">
-                        <select id="form-status" class="uk-width-1-1" v-model="project.status" options="statusOptions"></select>
+                        <select id="form-status" class="uk-width-1-1" v-model="project.status">
+                            <option v-for="status in statuses" :value="$key">{{ status | trans }}</option>
+                        </select>
                     </div>
                 </div>
 
@@ -75,14 +77,14 @@
                 <div class="uk-form-row">
                     <span class="uk-form-label">{{ 'Date' | trans }}</span>
                     <div class="uk-form-controls">
-                        <input-date datetime="{{@ project.date}}"></input-date>
+                        <input-date datetime.sync="project.date"></input-date>
                     </div>
                 </div>
 
                 <div class="uk-form-row">
                     <span class="uk-form-label">{{ 'Tags' | trans }}</span>
                     <div class="uk-form-controls">
-                        <input-tags tags="{{@ project.tags}}" existing="{{ tags }}"></input-tags>
+                        <input-tags :tags.sync="project.tags" :existing="tags"></input-tags>
                     </div>
                 </div>
 
@@ -105,14 +107,17 @@
 
     module.exports = {
 
-        inherit: true,
+        props: ['project', 'config', 'form'],
 
-        computed: {
+        data: function () {
+            return _.merge({
+                tags: [],
+                statuses: {}
+            }, window.$data);
+        },
 
-            statusOptions: function () {
-                return _.map(this.statuses, function (status, id) { return { text: status, value: id }; });
-            }
-
+        components: {
+            'input-tags': require('./input-tags.vue')
         }
 
     };

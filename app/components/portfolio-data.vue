@@ -1,9 +1,9 @@
 <template>
 
     <div class="uk-form-horizontal uk-margin">
-        <div v-repeat="datafield: config.datafields" class="uk-form-row">
+        <div v-for="datafield in config.datafields" class="uk-form-row">
 
-           <datafieldvalue datafield="{{ datafield }}" value="{{@ project.data[datafield.name] }}"></datafieldvalue>
+           <datafieldvalue :datafield="datafield" :value.sync="project.data[datafield.name]"></datafieldvalue>
 
         </div>
     </div>
@@ -16,7 +16,7 @@
 
     module.exports = {
 
-        inherit: true,
+        props: ['project', 'config', 'form'],
 
         created: function () {
             this.$on('datafieldvalue.changed', function (name, value) {

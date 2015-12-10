@@ -25,7 +25,7 @@ class ImageApiController
 		$dir    = App::path();
 
 		if (!$files = glob($dir.'/'.$folder.'/*')) {
-			return;
+			return [];
 		}
 
 

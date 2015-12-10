@@ -1,9 +1,12 @@
-module.exports = Vue.extend({
+module.exports = {
+
+    el: '#project-edit',
 
     data: function () {
         return _.merge({
             tags: [],
-            project: {}
+            project: {},
+            form: {}
         }, window.$data);
     },
 
@@ -16,14 +19,12 @@ module.exports = Vue.extend({
 
     ready: function () {
         this.Project = this.$resource('api/portfolio/project/:id');
-        this.tab = UIkit.tab(this.$$.tab, {connect: this.$$.content});
+        this.tab = UIkit.tab(this.$els.tab, {connect: this.$els.content});
     },
 
     methods: {
 
-        save: function (e) {
-
-            e.preventDefault();
+        save: function () {
 
             var data = {project: this.project};
 
@@ -51,15 +52,11 @@ module.exports = Vue.extend({
         portfoliobasic: require('../../components/portfolio-basic.vue'),
         portfolioimages: require('../../components/portfolio-images.vue'),
         portfoliodata: require('../../components/portfolio-data.vue'),
-        'input-tags': require('../../components/input-tags.vue'),
         'input-folder': require('../../components/input-folder.vue')
 
     }
 
-});
+};
 
-$(function () {
+Vue.ready(module.exports);
 
-    (new module.exports()).$mount('#project-edit');
-
-});

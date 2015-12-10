@@ -2,13 +2,13 @@
 
     <div class="uk-margin uk-form-stacked">
 
-        <div class="uk-grid uk-margin" data-uk-frid-margin>
+        <div class="uk-grid uk-margin" data-uk-grid-margin>
             <div class="uk-width-medium-1-2">
 
                 <div class="uk-form-row">
                     <label class="uk-form-label">{{ 'Main image' | trans }}</label>
                     <div class="uk-form-controls">
-                        <input-image-meta image="{{@ project.image.main }}" class="pk-image-max-height"></input-image-meta>
+                        <input-image-meta :image="project.image.main" class="pk-image-max-height"></input-image-meta>
                     </div>
                 </div>
 
@@ -18,7 +18,7 @@
                 <div class="uk-form-row">
                     <label class="uk-form-label">{{ 'Teaser image' | trans }}</label>
                     <div class="uk-form-controls">
-                        <input-image-meta image="{{@ project.image.teaser }}" class="pk-image-max-height"></input-image-meta>
+                        <input-image-meta :image="project.image.teaser" class="pk-image-max-height"></input-image-meta>
                     </div>
                 </div>
 
@@ -33,14 +33,14 @@
                     <ul class="uk-float-right uk-subnav pk-subnav-icon">
                         <li><a class="pk-icon-help pk-icon-hover" data-uk-modal="{target:'#folder-help'}"></a></li>
                     </ul>
-                    <input-folder folder="{{@ project.image.folder }}" class="uk-width-medium-1-2"></input-folder>
+                    <input-folder :folder="project.image.folder" class="uk-width-medium-1-2"></input-folder>
                 </div>
             </div>
         </div>
 
         <div v-show="project.images.length" class="uk-margin">
             <ul class="uk-list uk-list-line">
-                <portfolioimage v-repeat="image: project.images"></portfolioimage>
+                <portfolioimage v-for="image in project.images" :image="image"></portfolioimage>
             </ul>
         </div>
 
@@ -67,7 +67,7 @@
 
     module.exports = {
 
-        inherit: true,
+        props: ['project', 'config', 'form'],
 
         data: function () {
             return {

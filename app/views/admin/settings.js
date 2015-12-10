@@ -1,4 +1,6 @@
-module.exports = Vue.extend({
+module.exports = {
+
+    el: '#portfolio-settings',
 
     data: function () {
         return window.$data;
@@ -8,7 +10,7 @@ module.exports = Vue.extend({
 
     ready: function () {
         var vm = this;
-        UIkit.nestable(this.$$.datafieldsNestable, {
+        UIkit.nestable(this.$els.datafieldsNestable, {
             maxDepth: 1,
             handleClass: 'uk-nestable-handle',
             group: 'portfolio.datafields'
@@ -46,7 +48,7 @@ module.exports = Vue.extend({
                 invalid: false
             });
             this.$nextTick(function () {
-                $(this.$$.datafieldsNestable).find('input:last').focus();
+                $(this.$els.datafieldsNestable).find('input:last').focus();
             });
         },
 
@@ -80,15 +82,15 @@ module.exports = Vue.extend({
 
         datafield: {
 
-            template: '<li class="uk-nestable-item" data-name="{{ datafield.name }}">\n    <div class="uk-nestable-panel uk-visible-hover uk-form uk-flex uk-flex-middle">\n        <div class="uk-flex-item-1">\n            <div class="uk-form-row">\n                <small class="uk-form-label uk-text-muted uk-text-truncate" style="text-transform: none"\n                       v-show="datafield.attachValue"\n                       v-class="uk-text-danger: datafield.invalid">{{ datafield.name }}</small>\n                <span class="uk-form-label" v-show="!datafield.attachValue">\n                    <input type="text" class="uk-form-small"\n                           v-on="keyup: safeValue(true)"\n                           v-class="uk-text-danger: datafield.invalid"\n                           v-model="datafield.name"/></span>\n                <div class="uk-form-controls">\n                    <input type="text" class="uk-form-width-large" v-model="datafield.label"/></div>\n                <p class="uk-form-help-block uk-text-danger" v-show="datafield.invalid">{{ datafield.invalid | trans }}</p>\n\n            </div>\n        </div>\n        <div class="">\n            <ul class="uk-subnav pk-subnav-icon">\n                <li><a class="uk-icon uk-margin-small-top pk-icon-hover uk-invisible"\n                       data-uk-tooltip="{delay: 500}" title="{{ \'Link/Unlink name from label\' | trans }}"\n                       v-class="uk-icon-link: !datafield.attachValue, uk-icon-chain-broken: datafield.attachValue"\n                       v-on="click: datafield.attachValue = !datafield.attachValue"></a></li>\n                <li><a class="pk-icon-delete pk-icon-hover uk-invisible" v-on="click: deleteDatafield($index)"></a></li>\n                <li><a class="pk-icon-move pk-icon-hover uk-invisible uk-nestable-handle"></a></li>\n            </ul>\n        </div>\n    </div>\n</li>   \n',
+            template: '<li class="uk-nestable-item" data-name="{{ datafield.name }}">\n    <div class="uk-nestable-panel uk-visible-hover uk-form uk-flex uk-flex-middle">\n        <div class="uk-flex-item-1">\n            <div class="uk-form-row">\n                <small class="uk-form-label uk-text-muted uk-text-truncate" style="text-transform: none"\n                       v-show="datafield.attachValue"\n                       :class="{\'uk-text-danger\': datafield.invalid}">{{ datafield.name }}</small>\n                <span class="uk-form-label" v-show="!datafield.attachValue">\n                    <input type="text" class="uk-form-small"\n                           @keyup="safeValue(true)"\n                           :class="{\'uk-text-danger\': datafield.invalid}"\n                           v-model="datafield.name"/></span>\n                <div class="uk-form-controls">\n                    <input type="text" class="uk-form-width-large" v-model="datafield.label"/></div>\n                <p class="uk-form-help-block uk-text-danger" v-show="datafield.invalid">{{ datafield.invalid | trans }}</p>\n\n            </div>\n        </div>\n        <div class="">\n            <ul class="uk-subnav pk-subnav-icon">\n                <li><a class="uk-icon uk-margin-small-top pk-icon-hover uk-invisible"\n                       data-uk-tooltip="{delay: 500}" :title="\'Link/Unlink name from label\' | trans"\n                       :class="{\'uk-icon-link\': !datafield.attachValue, \'uk-icon-chain-broken\': datafield.attachValue}"\n                       @click="datafield.attachValue = !datafield.attachValue"></a></li>\n                <li><a class="pk-icon-delete pk-icon-hover uk-invisible" @click="$parent.deleteDatafield(datafield)"></a></li>\n                <li><a class="pk-icon-move pk-icon-hover uk-invisible uk-nestable-handle"></a></li>\n            </ul>\n        </div>\n    </div>\n</li>   \n',
 
-            inherit: true,
+            props: ['datafield'],
 
             methods: {
                 safeValue: function (checkDups) {
                     this.datafield.name = _.escape(_.snakeCase(this.datafield.name));
                     if (checkDups) {
-                        this.checkDuplicates();
+                        this.$parent.checkDuplicates();
                     }
                 }
             },
@@ -98,7 +100,7 @@ module.exports = Vue.extend({
                     if (this.datafield.attachValue) {
                         this.datafield.name = _.escape(_.snakeCase(name));
                     }
-                    this.checkDuplicates();
+                    this.$parent.checkDuplicates();
                 }
 
             }
@@ -106,16 +108,16 @@ module.exports = Vue.extend({
 
     }
 
-});
+};
 
 Vue.field.templates.formrow = require('../../templates/formrow.html');
 Vue.field.templates.raw = require('../../templates/raw.html');
-Vue.field.types.checkbox = '<p class="uk-form-controls-condensed"><label><input type="checkbox" v-attr="attrs" v-model="value"> {{ optionlabel | trans }}</label></p>';
-Vue.field.types.number = '<input type="number" v-attr="attrs" v-model="value" number>';
-Vue.field.types.title = '<h3 v-attr="attrs">{{ title | trans }}</h3>';
+Vue.field.types.text = '<input type="text" v-bind="attrs" v-model="value">';
+Vue.field.types.textarea = '<textarea v-bind="attrs" v-model="value"></textarea>';
+Vue.field.types.select = '<select v-bind="attrs" v-model="value"><option v-for="option in options" :value="option">{{ $key }}</option></select>';
+Vue.field.types.radio = '<p class="uk-form-controls-condensed"><label v-for="option in options"><input type="radio" :value="option" v-model="value"> {{ $key | trans }}</label></p>';
+Vue.field.types.checkbox = '<p class="uk-form-controls-condensed"><label><input type="checkbox" v-bind="attrs" v-model="value" v-bind:true-value="1" v-bind:false-value="0" number> {{ optionlabel | trans }}</label></p>';
+Vue.field.types.number = '<input type="number" v-bind="attrs" v-model="value" number>';
+Vue.field.types.title = '<h3 v-bind="attrs">{{ title | trans }}</h3>';
 
-$(function () {
-
-    (new module.exports()).$mount('#portfolio-settings');
-
-});
+Vue.ready(module.exports);
