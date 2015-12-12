@@ -87,13 +87,15 @@ class PortfolioController
      */
     public function settingsAction()
     {
+		$portfolio = App::module('bixie/portfolio');
         return [
             '$view' => [
                 'title' => __('Portfolio settings'),
                 'name'  => 'bixie/portfolio/admin/settings.php'
             ],
             '$data' => [
-                'config' => App::module('bixie/portfolio')->config()
+				'cache_path' => $portfolio->getCachepath(),
+                'config' => $portfolio->config()
             ]
         ];
     }
