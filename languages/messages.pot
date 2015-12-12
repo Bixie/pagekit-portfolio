@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pagekit UNKNOWN (bixie/portfolio, messages)\n"
-"POT-Creation-Date: 2015-10-17 10:47+0000\n"
+"POT-Creation-Date: 2015-12-12 20:49+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,30 +13,6 @@ msgid "Filter by"
 msgstr ""
 
 msgid "Title"
-msgstr ""
-
-msgid "Image title"
-msgstr ""
-
-msgid "Main image"
-msgstr ""
-
-msgid "Existing"
-msgstr ""
-
-msgid "Delete"
-msgstr ""
-
-msgid "Project %title% saved."
-msgstr ""
-
-msgid "Select folder"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
-msgid "Select"
 msgstr ""
 
 msgid "Subtitle"
@@ -66,13 +42,10 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-msgid "Enable Markdown"
+msgid "Existing"
 msgstr ""
 
-msgid "Image description"
-msgstr ""
-
-msgid "Show in teaser"
+msgid "Main image"
 msgstr ""
 
 msgid "Teaser image"
@@ -85,6 +58,30 @@ msgid "Select the folder by checking the checkbox in front of the name! Click \"
 msgstr ""
 
 msgid "Images in the folder are sorted by alphabet. Numbers in front of the filename are removed, so you can influence the ordering by naming your images with numbers."
+msgstr ""
+
+msgid "Image title"
+msgstr ""
+
+msgid "Image description"
+msgstr ""
+
+msgid "Select folder"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Project %title% saved."
+msgstr ""
+
+msgid "Enable Markdown"
+msgstr ""
+
+msgid "Show in teaser"
 msgstr ""
 
 msgid "Portfolio"
@@ -133,9 +130,6 @@ msgid "{0} %count% Projects|{1} %count% Project|]1,Inf[ %count% Projects"
 msgstr ""
 
 msgid "{1} %count% Project selected|]1,Inf[ %count% Projects selected"
-msgstr ""
-
-msgid "Preview project"
 msgstr ""
 
 msgid "Save"
@@ -187,6 +181,15 @@ msgid "Auto"
 msgstr ""
 
 msgid "Height"
+msgstr ""
+
+msgid "Cache path writable"
+msgstr ""
+
+msgid "Current cache path not writable"
+msgstr ""
+
+msgid "Current cache path is writable"
 msgstr ""
 
 msgid "Image thumbs cache"
