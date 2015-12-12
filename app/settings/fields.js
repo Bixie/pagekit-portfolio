@@ -402,6 +402,11 @@ module.exports = {
                 '15-1-2015': 'd-m-Y'
             },
             attrs: {'class': 'uk-form-width-medium'}
+        },
+        'cache_path': {
+            type: 'text',
+            label: 'Cache folder images',
+            attrs: {'class': 'uk-form-width-large'}
         }
 
     }

@@ -115,9 +115,8 @@ class PortfolioImageHelper extends Helper {
 	 * @return string
 	 */
 	protected function getCachePath ($source, $options) {
-		$folder = App::get('path.cache') . '/portfolio';
-		App::file()->makeDir($folder);
 
+		$folder = $this->app->module('bixie/portfolio')->getCachepath();
 		$cachename = md5($source . filemtime($source) . serialize($options)) . '-' . basename($source);
 
 		return "$folder/$cachename";
@@ -128,8 +127,8 @@ class PortfolioImageHelper extends Helper {
 	 */
 	public static function clearCache ($options = []) {
 
-		if (@$options['temp']) {
-			App::file()->delete(App::get('path.cache') . '/portfolio');
+		if (@$options['temp'] and $cache_path = App::module('bixie/portfolio')->getCachepath()) {
+			App::file()->delete($cache_path);
 		}
 
 	}

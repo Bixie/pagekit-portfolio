@@ -188,6 +188,19 @@
 						<fields :config="$options.fields.general" :model.sync="config" template="formrow"></fields>
 
 						<div class="uk-form-row">
+							<span class="uk-form-label">{{ 'Cache path writable' | trans }}</span>
+
+							<div class="uk-form-controls uk-form-controls-text">
+								<p v-if="cache_path == false"
+								   class="uk-alert uk-alert-danger">
+									<i class="uk-icon-info uk-margin-small-right"  data-uk-tooltip=""
+									   :title="'Refresh to check again. Try the /storage folder if /tmp/cache is unwritable' | trans"></i>
+									{{ 'Current cache path not writable' | trans }}</p>
+								<p v-else class="uk-text-success">{{ 'Current cache path is writable' | trans }}</p>
+							</div>
+						</div>
+
+						<div class="uk-form-row">
 							<span class="uk-form-label">{{ 'Image thumbs cache' | trans }}</span>
 
 							<div class="uk-form-controls uk-form-controls-text">

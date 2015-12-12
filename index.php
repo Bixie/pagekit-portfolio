@@ -1,5 +1,6 @@
 <?php
 
+use Pagekit\Application as App;
 use Bixie\Portfolio\Event\RouteListener;
 use Bixie\Portfolio\PortfolioImageHelper;
 
@@ -8,6 +9,8 @@ return [
 	'name' => 'bixie/portfolio',
 
 	'type' => 'extension',
+
+	'main' => 'Bixie\\Portfolio\\PortfolioModule',
 
 	'autoload' => [
 
@@ -157,6 +160,7 @@ return [
 			'columns_xlarge' => 6,
 			'columns_gutter' => 20
 		],
+		'cache_path' => str_replace(App::path(), '', App::get('path.cache') . '/portfolio'),
 		'date_format' => 'F Y',
 		'markdown' => true,
 		'datafields' => []
