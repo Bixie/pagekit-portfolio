@@ -561,11 +561,6 @@
 	            label: 'Projects per page',
 	            attrs: {'class': 'uk-form-width-small'}
 	        },
-	        'markdown_enabled': {
-	            type: 'checkbox',
-	            label: 'Markdown',
-	            optionlabel: 'Markdown enabled'
-	        },
 	        'date_format': {
 	            type: 'select',
 	            label: 'Date format',
