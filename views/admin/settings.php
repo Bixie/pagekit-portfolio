@@ -56,6 +56,9 @@
 							<div class="uk-form-controls">
 								<v-editor id="form-intro" :value.sync="config.portfolio_text"
 										  :options="{markdown : config.markdown_enabled, height: 250}"></v-editor>
+								<p>
+									<label><input type="checkbox" v-model="config.markdown_enabled"> {{ 'Enable Markdown' | trans }}</label>
+								</p>
 							</div>
 						</div>
 					</div>
