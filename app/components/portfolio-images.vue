@@ -8,7 +8,7 @@
                 <div class="uk-form-row">
                     <label class="uk-form-label">{{ 'Main image' | trans }}</label>
                     <div class="uk-form-controls">
-                        <input-image-meta :image="project.image.main" class="pk-image-max-height"></input-image-meta>
+                        <input-image-meta :image.sync="project.image.main" class="pk-image-max-height"></input-image-meta>
                     </div>
                 </div>
 
@@ -18,7 +18,7 @@
                 <div class="uk-form-row">
                     <label class="uk-form-label">{{ 'Teaser image' | trans }}</label>
                     <div class="uk-form-controls">
-                        <input-image-meta :image="project.image.teaser" class="pk-image-max-height"></input-image-meta>
+                        <input-image-meta :image.sync="project.image.teaser" class="pk-image-max-height"></input-image-meta>
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@
 
                 <div class="uk-form-controls">
                     <ul class="uk-float-right uk-subnav pk-subnav-icon">
-                        <li><a class="pk-icon-help pk-icon-hover" data-uk-modal="{target:'#folder-help'}"></a></li>
+                        <li><a class="uk-icon-info pk-icon-hover" data-uk-modal="{target:'#folder-help'}"></a></li>
                     </ul>
                     <input-folder :folder="project.image.folder" class="uk-width-medium-1-2"></input-folder>
                 </div>
@@ -44,23 +44,23 @@
             </ul>
         </div>
 
-    </div>
-
-
-    <div id="folder-help" class="uk-modal">
-        <div class="uk-modal-dialog">
-            <a class="uk-modal-close uk-close"></a>
-            <div class="uk-modal-header">
-                <h3><i class="pk-icon-info uk-margin-small-right"></i>{{ 'Image folder' | trans }}</h3>
+        <div id="folder-help" class="uk-modal">
+            <div class="uk-modal-dialog">
+                <a class="uk-modal-close uk-close"></a>
+                <div class="uk-modal-header">
+                    <h3><i class="pk-icon-info uk-margin-small-right"></i>{{ 'Image folder' | trans }}</h3>
+                </div>
+                <p>
+                    {{ 'Select the folder by checking the checkbox in front of the name! Click "Select" button at bottom to confirm.' | trans }}
+                </p>
+                <p>
+                    {{ 'Images in the folder are sorted by alphabet. Numbers in front of the filename are removed, so you can influence the ordering by naming your images with numbers.' | trans }}
+                </p>
             </div>
-            <p>
-                {{ 'Select the folder by checking the checkbox in front of the name! Click "Select" button at bottom to confirm.' | trans }}
-            </p>
-            <p>
-                {{ 'Images in the folder are sorted by alphabet. Numbers in front of the filename are removed, so you can influence the ordering by naming your images with numbers.' | trans }}
-            </p>
         </div>
+
     </div>
+
 </template>
 
 <script>
@@ -90,8 +90,9 @@
 
         methods: {
             loadFolder: function (folder) {
-                this.imageApi.query({ folder: folder }, function (data) {
-                    var existing = this.project.images,
+                this.imageApi.query({ folder: folder}).then(function (res) {
+                    var data = res.data,
+                        existing = this.project.images,
                         images = data.map(function (img) {
                             return _.assign({
                                 show_teaser: true,

@@ -504,7 +504,7 @@
 
 	//                     <div class="uk-form-controls">
 
-	//                         <input-image-meta :image="project.image.main" class="pk-image-max-height"></input-image-meta>
+	//                         <input-image-meta :image.sync="project.image.main" class="pk-image-max-height"></input-image-meta>
 
 	//                     </div>
 
@@ -520,7 +520,7 @@
 
 	//                     <div class="uk-form-controls">
 
-	//                         <input-image-meta :image="project.image.teaser" class="pk-image-max-height"></input-image-meta>
+	//                         <input-image-meta :image.sync="project.image.teaser" class="pk-image-max-height"></input-image-meta>
 
 	//                     </div>
 
@@ -540,7 +540,7 @@
 
 	//                     <ul class="uk-float-right uk-subnav pk-subnav-icon">
 
-	//                         <li><a class="pk-icon-help pk-icon-hover" data-uk-modal="{target:'#folder-help'}"></a></li>
+	//                         <li><a class="uk-icon-info pk-icon-hover" data-uk-modal="{target:'#folder-help'}"></a></li>
 
 	//                     </ul>
 
@@ -562,31 +562,31 @@
 
 	//         </div>
 
-	//     </div>
+	//         <div id="folder-help" class="uk-modal">
 
-	//     <div id="folder-help" class="uk-modal">
+	//             <div class="uk-modal-dialog">
 
-	//         <div class="uk-modal-dialog">
+	//                 <a class="uk-modal-close uk-close"></a>
 
-	//             <a class="uk-modal-close uk-close"></a>
+	//                 <div class="uk-modal-header">
 
-	//             <div class="uk-modal-header">
+	//                     <h3><i class="pk-icon-info uk-margin-small-right"></i>{{ 'Image folder' | trans }}</h3>
 
-	//                 <h3><i class="pk-icon-info uk-margin-small-right"></i>{{ 'Image folder' | trans }}</h3>
+	//                 </div>
+
+	//                 <p>
+
+	//                     {{ 'Select the folder by checking the checkbox in front of the name! Click "Select" button at bottom to confirm.' | trans }}
+
+	//                 </p>
+
+	//                 <p>
+
+	//                     {{ 'Images in the folder are sorted by alphabet. Numbers in front of the filename are removed, so you can influence the ordering by naming your images with numbers.' | trans }}
+
+	//                 </p>
 
 	//             </div>
-
-	//             <p>
-
-	//                 {{ 'Select the folder by checking the checkbox in front of the name! Click "Select" button at bottom to confirm.' | trans }}
-
-	//             </p>
-
-	//             <p>
-
-	//                 {{ 'Images in the folder are sorted by alphabet. Numbers in front of the filename are removed, so you can influence the ordering by naming your images with numbers.' | trans }}
-
-	//             </p>
 
 	//         </div>
 
@@ -621,8 +621,9 @@
 
 	    methods: {
 	        loadFolder: function loadFolder(folder) {
-	            this.imageApi.query({ folder: folder }, function (data) {
-	                var existing = this.project.images,
+	            this.imageApi.query({ folder: folder }).then(function (res) {
+	                var data = res.data,
+	                    existing = this.project.images,
 	                    images = data.map(function (img) {
 	                    return _.assign({
 	                        show_teaser: true,
@@ -762,7 +763,7 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"uk-margin uk-form-stacked\">\r\n\r\n        <div class=\"uk-grid uk-margin\" data-uk-grid-margin>\r\n            <div class=\"uk-width-medium-1-2\">\r\n\r\n                <div class=\"uk-form-row\">\r\n                    <label class=\"uk-form-label\">{{ 'Main image' | trans }}</label>\r\n                    <div class=\"uk-form-controls\">\r\n                        <input-image-meta :image=\"project.image.main\" class=\"pk-image-max-height\"></input-image-meta>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n            <div class=\"uk-width-medium-1-2\">\r\n\r\n                <div class=\"uk-form-row\">\r\n                    <label class=\"uk-form-label\">{{ 'Teaser image' | trans }}</label>\r\n                    <div class=\"uk-form-controls\">\r\n                        <input-image-meta :image=\"project.image.teaser\" class=\"pk-image-max-height\"></input-image-meta>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"uk-margin-large-top uk-form-horizontal uk-panel uk-panel-box\">\r\n            <div class=\"uk-form-row\">\r\n                <label class=\"uk-form-label\">{{ 'Image folder' | trans }}</label>\r\n\r\n                <div class=\"uk-form-controls\">\r\n                    <ul class=\"uk-float-right uk-subnav pk-subnav-icon\">\r\n                        <li><a class=\"pk-icon-help pk-icon-hover\" data-uk-modal=\"{target:'#folder-help'}\"></a></li>\r\n                    </ul>\r\n                    <input-folder :folder=\"project.image.folder\" class=\"uk-width-medium-1-2\"></input-folder>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div v-show=\"project.images.length\" class=\"uk-margin\">\r\n            <ul class=\"uk-list uk-list-line\">\r\n                <portfolioimage v-for=\"image in project.images\" :image=\"image\"></portfolioimage>\r\n            </ul>\r\n        </div>\r\n\r\n    </div>\r\n\r\n\r\n    <div id=\"folder-help\" class=\"uk-modal\">\r\n        <div class=\"uk-modal-dialog\">\r\n            <a class=\"uk-modal-close uk-close\"></a>\r\n            <div class=\"uk-modal-header\">\r\n                <h3><i class=\"pk-icon-info uk-margin-small-right\"></i>{{ 'Image folder' | trans }}</h3>\r\n            </div>\r\n            <p>\r\n                {{ 'Select the folder by checking the checkbox in front of the name! Click \"Select\" button at bottom to confirm.' | trans }}\r\n            </p>\r\n            <p>\r\n                {{ 'Images in the folder are sorted by alphabet. Numbers in front of the filename are removed, so you can influence the ordering by naming your images with numbers.' | trans }}\r\n            </p>\r\n        </div>\r\n    </div>";
+	module.exports = "<div class=\"uk-margin uk-form-stacked\">\r\n\r\n        <div class=\"uk-grid uk-margin\" data-uk-grid-margin>\r\n            <div class=\"uk-width-medium-1-2\">\r\n\r\n                <div class=\"uk-form-row\">\r\n                    <label class=\"uk-form-label\">{{ 'Main image' | trans }}</label>\r\n                    <div class=\"uk-form-controls\">\r\n                        <input-image-meta :image.sync=\"project.image.main\" class=\"pk-image-max-height\"></input-image-meta>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n            <div class=\"uk-width-medium-1-2\">\r\n\r\n                <div class=\"uk-form-row\">\r\n                    <label class=\"uk-form-label\">{{ 'Teaser image' | trans }}</label>\r\n                    <div class=\"uk-form-controls\">\r\n                        <input-image-meta :image.sync=\"project.image.teaser\" class=\"pk-image-max-height\"></input-image-meta>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"uk-margin-large-top uk-form-horizontal uk-panel uk-panel-box\">\r\n            <div class=\"uk-form-row\">\r\n                <label class=\"uk-form-label\">{{ 'Image folder' | trans }}</label>\r\n\r\n                <div class=\"uk-form-controls\">\r\n                    <ul class=\"uk-float-right uk-subnav pk-subnav-icon\">\r\n                        <li><a class=\"uk-icon-info pk-icon-hover\" data-uk-modal=\"{target:'#folder-help'}\"></a></li>\r\n                    </ul>\r\n                    <input-folder :folder=\"project.image.folder\" class=\"uk-width-medium-1-2\"></input-folder>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div v-show=\"project.images.length\" class=\"uk-margin\">\r\n            <ul class=\"uk-list uk-list-line\">\r\n                <portfolioimage v-for=\"image in project.images\" :image=\"image\"></portfolioimage>\r\n            </ul>\r\n        </div>\r\n\r\n        <div id=\"folder-help\" class=\"uk-modal\">\r\n            <div class=\"uk-modal-dialog\">\r\n                <a class=\"uk-modal-close uk-close\"></a>\r\n                <div class=\"uk-modal-header\">\r\n                    <h3><i class=\"pk-icon-info uk-margin-small-right\"></i>{{ 'Image folder' | trans }}</h3>\r\n                </div>\r\n                <p>\r\n                    {{ 'Select the folder by checking the checkbox in front of the name! Click \"Select\" button at bottom to confirm.' | trans }}\r\n                </p>\r\n                <p>\r\n                    {{ 'Images in the folder are sorted by alphabet. Numbers in front of the filename are removed, so you can influence the ordering by naming your images with numbers.' | trans }}\r\n                </p>\r\n            </div>\r\n        </div>\r\n\r\n    </div>";
 
 /***/ },
 /* 19 */
@@ -953,7 +954,7 @@
 	Vue.component('input-folder', function (resolve, reject) {
 	    Vue.asset({
 	        js: ['app/assets/uikit/js/components/upload.min.js', 'app/system/modules/finder/app/bundle/panel-finder.js']
-	    }, function () {
+	    }).then(function () {
 	        resolve(module.exports);
 	    });
 	});
