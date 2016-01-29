@@ -33,9 +33,9 @@ module.exports = {
     methods: {
 
         save: function () {
-            this.$http.post('admin/system/settings/config', { name: 'bixie/portfolio', config: this.config }, function () {
+            this.$http.post('admin/portfolio/config', { config: this.config }).then(function () {
                 this.$notify('Settings saved.');
-            }).error(function (data) {
+            }, function (data) {
                 this.$notify(data, 'danger');
             });
         },
