@@ -58,7 +58,7 @@
 	    },
 
 	    created: function () {
-	        this.resource = this.$resource('api/portfolio/project/:id');
+	        this.resource = this.$resource('api/portfolio/project/{id}');
 	        this.config.filter = _.extend({ search: '', status: '', order: 'date desc', limit: 25}, this.config.filter);
 	    },
 
@@ -84,17 +84,17 @@
 
 	            page = page !== undefined ? page : this.config.page;
 
-	            return this.resource.query({ filter: this.config.filter, page: page }, function (data) {
-	                this.$set('projects', data.projects);
-	                this.$set('pages', data.pages);
-	                this.$set('count', data.count);
+	            return this.resource.query({ filter: this.config.filter, page: page }).then(function (res) {
+	                this.$set('projects', res.data.projects);
+	                this.$set('pages', res.data.pages);
+	                this.$set('count', res.data.count);
 	                this.$set('config.page', page);
 	                this.$set('selected', []);
 	            });
 	        },
 
 	        save: function (project) {
-	            this.resource.save({ id: project.id }, { project: project }, function (data) {
+	            this.resource.save({ id: project.id }, { project: project }).then(function () {
 	                this.load();
 	                this.$notify('Project saved.');
 	            });
@@ -108,7 +108,7 @@
 	                project.status = status;
 	            });
 
-	            this.resource.save({ id: 'bulk' }, { projects: projects }, function (data) {
+	            this.resource.save({ id: 'bulk' }, { projects: projects }).then(function () {
 	                this.load();
 	                this.$notify('Projects saved.');
 	            });
@@ -127,7 +127,7 @@
 
 	        removeProjects: function () {
 
-	            this.resource.delete({id: 'bulk'}, {ids: this.selected}, function () {
+	            this.resource.delete({id: 'bulk'}, {ids: this.selected}).then(function () {
 	                this.load();
 	                this.$notify('Project(s) deleted.');
 	            });

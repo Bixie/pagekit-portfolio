@@ -64,7 +64,7 @@
 	    },
 
 	    ready: function () {
-	        this.Project = this.$resource('api/portfolio/project/:id');
+	        this.Project = this.$resource('api/portfolio/project/{id}');
 	        this.tab = UIkit.tab(this.$els.tab, {connect: this.$els.content});
 	    },
 
@@ -76,13 +76,13 @@
 
 	            this.$broadcast('save', data);
 
-	            this.Project.save({id: this.project.id}, data, function (data) {
+	            this.Project.save({id: this.project.id || 0}, data).then(function (res) {
 
 	                if (!this.project.id) {
-	                    window.history.replaceState({}, '', this.$url.route('admin/portfolio/project/edit', {id: data.project.id}))
+	                    window.history.replaceState({}, '', this.$url.route('admin/portfolio/project/edit', {id: res.data.project.id}));
 	                }
 
-	                this.$set('project', data.project);
+	                this.$set('project', res.data.project);
 
 	                this.$notify(this.$trans('Project %title% saved.', {title: this.project.title}));
 
