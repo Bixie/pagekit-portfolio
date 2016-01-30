@@ -35,8 +35,8 @@ module.exports = {
         save: function () {
             this.$http.post('admin/portfolio/config', { config: this.config }).then(function () {
                 this.$notify('Settings saved.');
-            }, function (data) {
-                this.$notify(data, 'danger');
+            }, function (res) {
+                this.$notify(res.data, 'danger');
             });
         },
 
