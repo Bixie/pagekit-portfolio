@@ -28,13 +28,6 @@
 
             datafieldvalue: {
 
-                data: function () {
-                    return {
-                        datafield: '',
-                        value: ''
-                    }
-                },
-
                 props: ['datafield', 'value'],
 
                 template: '<label for="form-{{ datafield.name }}" class="uk-form-label">{{ datafield.label }}</label>\n<div class="uk-form-controls">\n    <input id="form-{{ datafield.name }}" class="uk-form-width-medium" type="text" name="{{ datafield.name }}"\n           v-model="value">\n</div>\n',
