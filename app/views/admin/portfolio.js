@@ -12,7 +12,7 @@ module.exports = {
     },
 
     created: function () {
-        this.resource = this.$resource('api/portfolio/project/{id}');
+        this.resource = this.$resource('api/portfolio/project{/id}');
         this.config.filter = _.extend({ search: '', status: '', order: 'date desc', limit: 25}, this.config.filter);
     },
 
