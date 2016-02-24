@@ -77,7 +77,7 @@
                 <div class="uk-form-row">
                     <span class="uk-form-label">{{ 'Date' | trans }}</span>
                     <div class="uk-form-controls">
-                        <input-date datetime.sync="project.date"></input-date>
+                        <input-date :datetime.sync="project.date"></input-date>
                     </div>
                 </div>
 
