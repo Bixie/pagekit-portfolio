@@ -9,7 +9,7 @@ module.exports = {
             '6': '6'
         },
         inherit: {
-            'Inherit': '',
+            'Inherit': '', /*trans*/
             '1': '1',
             '2': '2',
             '3': '3',
@@ -19,71 +19,71 @@ module.exports = {
         }
     },
     gutter: {
-        'Collapse': '0',
+        'Collapse': '0', /*trans*/
         '10 px': '10',
         '20 px': '20',
         '30 px': '30'
     },
     align: {
         general: {
-            'Left': 'left',
-            'Right': 'right',
-            'Center': 'center'
+            'Left': 'left', /*trans*/
+            'Right': 'right', /*trans*/
+            'Center': 'center' /*trans*/
         },
         text: {
-            'Left': 'uk-text-left',
-            'Right': 'uk-text-right',
-            'Center': 'uk-text-center'
+            'Left': 'uk-text-left', /*trans*/
+            'Right': 'uk-text-right', /*trans*/
+            'Center': 'uk-text-center' /*trans*/
         },
         flex: {
-            'Left': '',
-            'Right': 'uk-flex-right',
-            'Center': 'uk-flex-center'
+            'Left': '', /*trans*/
+            'Right': 'uk-flex-right', /*trans*/
+            'Center': 'uk-flex-center' /*trans*/
         }
     },
     heading_size: {
-        'Heading H1': 'uk-h1',
-        'Heading H2': 'uk-h2',
-        'Heading H3': 'uk-h3',
-        'Heading H4': 'uk-h4',
-        'Large header': 'uk-heading-large',
-        'Module header': 'uk-module-title',
-        'Article header': 'uk-article-title'
+        'Heading H1': 'uk-h1', /*trans*/
+        'Heading H2': 'uk-h2', /*trans*/
+        'Heading H3': 'uk-h3', /*trans*/
+        'Heading H4': 'uk-h4', /*trans*/
+        'Large header': 'uk-heading-large', /*trans*/
+        'Module header': 'uk-module-title', /*trans*/
+        'Article header': 'uk-article-title' /*trans*/
     },
     text_color: {
-        'Normal': '',
-        'Primary': 'uk-text-primary',
-        'Contrast': 'uk-text-contrast',
-        'Muted': 'uk-text-muted',
-        'Success': 'uk-text-success',
-        'Warning': 'uk-text-warning',
-        'Danger': 'uk-text-danger'
+        'Normal': '', /*trans*/
+        'Primary': 'uk-text-primary', /*trans*/
+        'Contrast': 'uk-text-contrast', /*trans*/
+        'Muted': 'uk-text-muted', /*trans*/
+        'Success': 'uk-text-success', /*trans*/
+        'Warning': 'uk-text-warning', /*trans*/
+        'Danger': 'uk-text-danger' /*trans*/
     },
     button_style: {
-        'Link': 'uk-link',
-        'Button': 'uk-button',
-        'Button primary': 'uk-button uk-button-primary',
-        'Button success': 'uk-button uk-button-success',
-        'Button link': 'uk-button uk-button-link'
+        'Link': 'uk-link', /*trans*/
+        'Button': 'uk-button', /*trans*/
+        'Button primary': 'uk-button uk-button-primary', /*trans*/
+        'Button success': 'uk-button uk-button-success', /*trans*/
+        'Button link': 'uk-button uk-button-link' /*trans*/
     },
     panel_style: {
-        'Raw': '',
-        'Panel box': 'uk-panel-box',
-        'Panel box primary': 'uk-panel-box uk-panel-box-primary',
-        'Panel box secondary': 'uk-panel-box uk-panel-box-secondary',
-        'Panel space': 'uk-panel-space'
+        'Raw': '', /*trans*/
+        'Panel box': 'uk-panel-box', /*trans*/
+        'Panel box primary': 'uk-panel-box uk-panel-box-primary', /*trans*/
+        'Panel box secondary': 'uk-panel-box uk-panel-box-secondary', /*trans*/
+        'Panel space': 'uk-panel-space' /*trans*/
     },
     position: {
         page:  {
-            'Don\'t show': '',
-            'Content top': 'content-top',
-            'Sidebar': 'sidebar'
+            'Don\'t show': '', /*trans*/
+            'Content top': 'content-top', /*trans*/
+            'Sidebar': 'sidebar' /*trans*/
         },
         nav:  {
-            'Don\'t show': '',
-            'Top': 'top',
-            'Bottom': 'bottom',
-            'Both': 'both'
+            'Don\'t show': '', /*trans*/
+            'Top': 'top', /*trans*/
+            'Bottom': 'bottom', /*trans*/
+            'Both': 'both' /*trans*/
         }
     }
 

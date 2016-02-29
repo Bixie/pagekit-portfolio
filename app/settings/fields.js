@@ -163,9 +163,9 @@ module.exports = {
                 type: 'select',
                 label: 'Overlay',
                 options: {
-                    'None': '',
-                    'Always': 'uk-overlay',
-                    'On hover': 'uk-overlay uk-overlay-hover'
+                    'None': '', /*trans*/
+                    'Always': 'uk-overlay', /*trans*/
+                    'On hover': 'uk-overlay uk-overlay-hover' /*trans*/
                 },
                 attrs: {'class': 'uk-form-width-medium'}
             },
@@ -173,11 +173,11 @@ module.exports = {
                 type: 'select',
                 label: 'Overlay position',
                 options: {
-                    'Cover image': '',
-                    'Top': 'uk-overlay-top',
-                    'Bottom': 'uk-overlay-bottom',
-                    'Left': 'uk-overlay-left',
-                    'Right': 'uk-overlay-right'
+                    'Cover image': '', /*trans*/
+                    'Top': 'uk-overlay-top', /*trans*/
+                    'Bottom': 'uk-overlay-bottom', /*trans*/
+                    'Left': 'uk-overlay-left', /*trans*/
+                    'Right': 'uk-overlay-right' /*trans*/
                 },
                 attrs: {'class': 'uk-form-width-medium'}
             },
@@ -185,12 +185,12 @@ module.exports = {
                 type: 'select',
                 label: 'Overlay effect',
                 options: {
-                    'None': '',
-                    'Fade': 'uk-overlay-fade',
-                    'Slide top': 'uk-overlay-slide-top',
-                    'Slide bottom': 'uk-overlay-slide-bottom',
-                    'Slide left': 'uk-overlay-slide-left',
-                    'Slide right': 'uk-overlay-slide-right'
+                    'None': '', /*trans*/
+                    'Fade': 'uk-overlay-fade', /*trans*/
+                    'Slide top': 'uk-overlay-slide-top', /*trans*/
+                    'Slide bottom': 'uk-overlay-slide-bottom', /*trans*/
+                    'Slide left': 'uk-overlay-slide-left', /*trans*/
+                    'Slide right': 'uk-overlay-slide-right' /*trans*/
                 },
                 attrs: {'class': 'uk-form-width-medium'}
             },
@@ -198,10 +198,10 @@ module.exports = {
                 type: 'select',
                 label: 'Overlay image effect',
                 options: {
-                    'None': '',
-                    'Scale': 'uk-overlay-scale',
-                    'Rotate': 'uk-overlay-rotate',
-                    'Grayscale': 'uk-overlay-grayscale'
+                    'None': '', /*trans*/
+                    'Scale': 'uk-overlay-scale', /*trans*/
+                    'Rotate': 'uk-overlay-rotate', /*trans*/
+                    'Grayscale': 'uk-overlay-grayscale' /*trans*/
                 },
                 attrs: {'class': 'uk-form-width-medium'}
             }
@@ -240,12 +240,12 @@ module.exports = {
             type: 'select',
             label: 'Read more button style',
             options: {
-                'Overlay (when selected)': 'overlay',
-                'Link': 'uk-link',
-                'Button': 'uk-button',
-                'Button primary': 'uk-button uk-button-primary',
-                'Button success': 'uk-button uk-button-success',
-                'Button link': 'uk-button uk-button-link'
+                'Overlay (when selected)': 'overlay', /*trans*/
+                'Link': 'uk-link', /*trans*/
+                'Button': 'uk-button', /*trans*/
+                'Button primary': 'uk-button uk-button-primary', /*trans*/
+                'Button success': 'uk-button uk-button-success', /*trans*/
+                'Button link': 'uk-button uk-button-link' /*trans*/
             },
             attrs: {'class': 'uk-form-width-medium'}
         },
@@ -298,8 +298,8 @@ module.exports = {
             label: 'Overlay',
             options: {
                 'None': '',
-                'Always': 'uk-overlay',
-                'On hover': 'uk-overlay uk-overlay-hover'
+                'Always': 'uk-overlay', /*trans*/
+                'On hover': 'uk-overlay uk-overlay-hover' /*trans*/
             },
             attrs: {'class': 'uk-form-width-medium'}
         },
@@ -307,11 +307,11 @@ module.exports = {
             type: 'select',
             label: 'Overlay position',
             options: {
-                'Cover image': '',
-                'Top': 'uk-overlay-top',
-                'Bottom': 'uk-overlay-bottom',
-                'Left': 'uk-overlay-left',
-                'Right': 'uk-overlay-right'
+                'Cover image': '', /*trans*/
+                'Top': 'uk-overlay-top', /*trans*/
+                'Bottom': 'uk-overlay-bottom', /*trans*/
+                'Left': 'uk-overlay-left', /*trans*/
+                'Right': 'uk-overlay-right' /*trans*/
             },
             attrs: {'class': 'uk-form-width-medium'}
         },
@@ -319,12 +319,12 @@ module.exports = {
             type: 'select',
             label: 'Overlay effect',
             options: {
-                'None': '',
-                'Fade': 'uk-overlay-fade',
-                'Slide top': 'uk-overlay-slide-top',
-                'Slide bottom': 'uk-overlay-slide-bottom',
-                'Slide left': 'uk-overlay-slide-left',
-                'Slide right': 'uk-overlay-slide-right'
+                'None': '', /*trans*/
+                'Fade': 'uk-overlay-fade', /*trans*/
+                'Slide top': 'uk-overlay-slide-top', /*trans*/
+                'Slide bottom': 'uk-overlay-slide-bottom', /*trans*/
+                'Slide left': 'uk-overlay-slide-left', /*trans*/
+                'Slide right': 'uk-overlay-slide-right' /*trans*/
             },
             attrs: {'class': 'uk-form-width-medium'}
         },
@@ -333,9 +333,9 @@ module.exports = {
             label: 'Overlay image effect',
             options: {
                 'None': '',
-                'Scale': 'uk-overlay-scale',
-                'Rotate': 'uk-overlay-rotate',
-                'Grayscale': 'uk-overlay-grayscale'
+                'Scale': 'uk-overlay-scale', /*trans*/
+                'Rotate': 'uk-overlay-rotate', /*trans*/
+                'Grayscale': 'uk-overlay-grayscale' /*trans*/
             },
             attrs: {'class': 'uk-form-width-medium'}
         },
@@ -388,10 +388,10 @@ module.exports = {
             type: 'select',
             label: 'Date format',
             options: {
-                'January 2015': 'F Y',
-                'January 15 2015': 'F d Y',
-                '15 January 2015': 'd F Y',
-                'Jan 2015': 'M Y',
+                'January 2015': 'F Y', /*trans*/
+                'January 15 2015': 'F d Y', /*trans*/
+                '15 January 2015': 'd F Y', /*trans*/
+                'Jan 2015': 'M Y', /*trans*/
                 '1 2015': 'm Y',
                 '1-15-2015': 'm-d-Y',
                 '15-1-2015': 'd-m-Y'
