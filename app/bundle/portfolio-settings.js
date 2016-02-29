@@ -53,7 +53,7 @@
 	        return window.$data;
 	    },
 
-	    fields: __webpack_require__(25),
+	    fields: __webpack_require__(19),
 
 	    ready: function () {
 	        var vm = this;
@@ -157,8 +157,8 @@
 
 	};
 
-	Vue.field.templates.formrow = __webpack_require__(27);
-	Vue.field.templates.raw = __webpack_require__(28);
+	Vue.field.templates.formrow = __webpack_require__(21);
+	Vue.field.templates.raw = __webpack_require__(22);
 	Vue.field.types.text = '<input type="text" v-bind="attrs" v-model="value">';
 	Vue.field.types.textarea = '<textarea v-bind="attrs" v-model="value"></textarea>';
 	Vue.field.types.select = '<select v-bind="attrs" v-model="value"><option v-for="option in options" :value="option">{{ $key }}</option></select>';
@@ -172,11 +172,11 @@
 
 /***/ },
 
-/***/ 25:
+/***/ 19:
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var options = __webpack_require__(26);
+	var options = __webpack_require__(20);
 
 	module.exports = {
 	    portfolio: {
@@ -340,9 +340,9 @@
 	                type: 'select',
 	                label: 'Overlay',
 	                options: {
-	                    'None': '',
-	                    'Always': 'uk-overlay',
-	                    'On hover': 'uk-overlay uk-overlay-hover'
+	                    'None': '', /*trans*/
+	                    'Always': 'uk-overlay', /*trans*/
+	                    'On hover': 'uk-overlay uk-overlay-hover' /*trans*/
 	                },
 	                attrs: {'class': 'uk-form-width-medium'}
 	            },
@@ -350,11 +350,11 @@
 	                type: 'select',
 	                label: 'Overlay position',
 	                options: {
-	                    'Cover image': '',
-	                    'Top': 'uk-overlay-top',
-	                    'Bottom': 'uk-overlay-bottom',
-	                    'Left': 'uk-overlay-left',
-	                    'Right': 'uk-overlay-right'
+	                    'Cover image': '', /*trans*/
+	                    'Top': 'uk-overlay-top', /*trans*/
+	                    'Bottom': 'uk-overlay-bottom', /*trans*/
+	                    'Left': 'uk-overlay-left', /*trans*/
+	                    'Right': 'uk-overlay-right' /*trans*/
 	                },
 	                attrs: {'class': 'uk-form-width-medium'}
 	            },
@@ -362,12 +362,12 @@
 	                type: 'select',
 	                label: 'Overlay effect',
 	                options: {
-	                    'None': '',
-	                    'Fade': 'uk-overlay-fade',
-	                    'Slide top': 'uk-overlay-slide-top',
-	                    'Slide bottom': 'uk-overlay-slide-bottom',
-	                    'Slide left': 'uk-overlay-slide-left',
-	                    'Slide right': 'uk-overlay-slide-right'
+	                    'None': '', /*trans*/
+	                    'Fade': 'uk-overlay-fade', /*trans*/
+	                    'Slide top': 'uk-overlay-slide-top', /*trans*/
+	                    'Slide bottom': 'uk-overlay-slide-bottom', /*trans*/
+	                    'Slide left': 'uk-overlay-slide-left', /*trans*/
+	                    'Slide right': 'uk-overlay-slide-right' /*trans*/
 	                },
 	                attrs: {'class': 'uk-form-width-medium'}
 	            },
@@ -375,10 +375,10 @@
 	                type: 'select',
 	                label: 'Overlay image effect',
 	                options: {
-	                    'None': '',
-	                    'Scale': 'uk-overlay-scale',
-	                    'Rotate': 'uk-overlay-rotate',
-	                    'Grayscale': 'uk-overlay-grayscale'
+	                    'None': '', /*trans*/
+	                    'Scale': 'uk-overlay-scale', /*trans*/
+	                    'Rotate': 'uk-overlay-rotate', /*trans*/
+	                    'Grayscale': 'uk-overlay-grayscale' /*trans*/
 	                },
 	                attrs: {'class': 'uk-form-width-medium'}
 	            }
@@ -417,12 +417,12 @@
 	            type: 'select',
 	            label: 'Read more button style',
 	            options: {
-	                'Overlay (when selected)': 'overlay',
-	                'Link': 'uk-link',
-	                'Button': 'uk-button',
-	                'Button primary': 'uk-button uk-button-primary',
-	                'Button success': 'uk-button uk-button-success',
-	                'Button link': 'uk-button uk-button-link'
+	                'Overlay (when selected)': 'overlay', /*trans*/
+	                'Link': 'uk-link', /*trans*/
+	                'Button': 'uk-button', /*trans*/
+	                'Button primary': 'uk-button uk-button-primary', /*trans*/
+	                'Button success': 'uk-button uk-button-success', /*trans*/
+	                'Button link': 'uk-button uk-button-link' /*trans*/
 	            },
 	            attrs: {'class': 'uk-form-width-medium'}
 	        },
@@ -475,8 +475,8 @@
 	            label: 'Overlay',
 	            options: {
 	                'None': '',
-	                'Always': 'uk-overlay',
-	                'On hover': 'uk-overlay uk-overlay-hover'
+	                'Always': 'uk-overlay', /*trans*/
+	                'On hover': 'uk-overlay uk-overlay-hover' /*trans*/
 	            },
 	            attrs: {'class': 'uk-form-width-medium'}
 	        },
@@ -484,11 +484,11 @@
 	            type: 'select',
 	            label: 'Overlay position',
 	            options: {
-	                'Cover image': '',
-	                'Top': 'uk-overlay-top',
-	                'Bottom': 'uk-overlay-bottom',
-	                'Left': 'uk-overlay-left',
-	                'Right': 'uk-overlay-right'
+	                'Cover image': '', /*trans*/
+	                'Top': 'uk-overlay-top', /*trans*/
+	                'Bottom': 'uk-overlay-bottom', /*trans*/
+	                'Left': 'uk-overlay-left', /*trans*/
+	                'Right': 'uk-overlay-right' /*trans*/
 	            },
 	            attrs: {'class': 'uk-form-width-medium'}
 	        },
@@ -496,12 +496,12 @@
 	            type: 'select',
 	            label: 'Overlay effect',
 	            options: {
-	                'None': '',
-	                'Fade': 'uk-overlay-fade',
-	                'Slide top': 'uk-overlay-slide-top',
-	                'Slide bottom': 'uk-overlay-slide-bottom',
-	                'Slide left': 'uk-overlay-slide-left',
-	                'Slide right': 'uk-overlay-slide-right'
+	                'None': '', /*trans*/
+	                'Fade': 'uk-overlay-fade', /*trans*/
+	                'Slide top': 'uk-overlay-slide-top', /*trans*/
+	                'Slide bottom': 'uk-overlay-slide-bottom', /*trans*/
+	                'Slide left': 'uk-overlay-slide-left', /*trans*/
+	                'Slide right': 'uk-overlay-slide-right' /*trans*/
 	            },
 	            attrs: {'class': 'uk-form-width-medium'}
 	        },
@@ -510,9 +510,9 @@
 	            label: 'Overlay image effect',
 	            options: {
 	                'None': '',
-	                'Scale': 'uk-overlay-scale',
-	                'Rotate': 'uk-overlay-rotate',
-	                'Grayscale': 'uk-overlay-grayscale'
+	                'Scale': 'uk-overlay-scale', /*trans*/
+	                'Rotate': 'uk-overlay-rotate', /*trans*/
+	                'Grayscale': 'uk-overlay-grayscale' /*trans*/
 	            },
 	            attrs: {'class': 'uk-form-width-medium'}
 	        },
@@ -565,10 +565,10 @@
 	            type: 'select',
 	            label: 'Date format',
 	            options: {
-	                'January 2015': 'F Y',
-	                'January 15 2015': 'F d Y',
-	                '15 January 2015': 'd F Y',
-	                'Jan 2015': 'M Y',
+	                'January 2015': 'F Y', /*trans*/
+	                'January 15 2015': 'F d Y', /*trans*/
+	                '15 January 2015': 'd F Y', /*trans*/
+	                'Jan 2015': 'M Y', /*trans*/
 	                '1 2015': 'm Y',
 	                '1-15-2015': 'm-d-Y',
 	                '15-1-2015': 'd-m-Y'
@@ -588,7 +588,7 @@
 
 /***/ },
 
-/***/ 26:
+/***/ 20:
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -602,7 +602,7 @@
 	            '6': '6'
 	        },
 	        inherit: {
-	            'Inherit': '',
+	            'Inherit': '', /*trans*/
 	            '1': '1',
 	            '2': '2',
 	            '3': '3',
@@ -612,71 +612,71 @@
 	        }
 	    },
 	    gutter: {
-	        'Collapse': '0',
+	        'Collapse': '0', /*trans*/
 	        '10 px': '10',
 	        '20 px': '20',
 	        '30 px': '30'
 	    },
 	    align: {
 	        general: {
-	            'Left': 'left',
-	            'Right': 'right',
-	            'Center': 'center'
+	            'Left': 'left', /*trans*/
+	            'Right': 'right', /*trans*/
+	            'Center': 'center' /*trans*/
 	        },
 	        text: {
-	            'Left': 'uk-text-left',
-	            'Right': 'uk-text-right',
-	            'Center': 'uk-text-center'
+	            'Left': 'uk-text-left', /*trans*/
+	            'Right': 'uk-text-right', /*trans*/
+	            'Center': 'uk-text-center' /*trans*/
 	        },
 	        flex: {
-	            'Left': '',
-	            'Right': 'uk-flex-right',
-	            'Center': 'uk-flex-center'
+	            'Left': '', /*trans*/
+	            'Right': 'uk-flex-right', /*trans*/
+	            'Center': 'uk-flex-center' /*trans*/
 	        }
 	    },
 	    heading_size: {
-	        'Heading H1': 'uk-h1',
-	        'Heading H2': 'uk-h2',
-	        'Heading H3': 'uk-h3',
-	        'Heading H4': 'uk-h4',
-	        'Large header': 'uk-heading-large',
-	        'Module header': 'uk-module-title',
-	        'Article header': 'uk-article-title'
+	        'Heading H1': 'uk-h1', /*trans*/
+	        'Heading H2': 'uk-h2', /*trans*/
+	        'Heading H3': 'uk-h3', /*trans*/
+	        'Heading H4': 'uk-h4', /*trans*/
+	        'Large header': 'uk-heading-large', /*trans*/
+	        'Module header': 'uk-module-title', /*trans*/
+	        'Article header': 'uk-article-title' /*trans*/
 	    },
 	    text_color: {
-	        'Normal': '',
-	        'Primary': 'uk-text-primary',
-	        'Contrast': 'uk-text-contrast',
-	        'Muted': 'uk-text-muted',
-	        'Success': 'uk-text-success',
-	        'Warning': 'uk-text-warning',
-	        'Danger': 'uk-text-danger'
+	        'Normal': '', /*trans*/
+	        'Primary': 'uk-text-primary', /*trans*/
+	        'Contrast': 'uk-text-contrast', /*trans*/
+	        'Muted': 'uk-text-muted', /*trans*/
+	        'Success': 'uk-text-success', /*trans*/
+	        'Warning': 'uk-text-warning', /*trans*/
+	        'Danger': 'uk-text-danger' /*trans*/
 	    },
 	    button_style: {
-	        'Link': 'uk-link',
-	        'Button': 'uk-button',
-	        'Button primary': 'uk-button uk-button-primary',
-	        'Button success': 'uk-button uk-button-success',
-	        'Button link': 'uk-button uk-button-link'
+	        'Link': 'uk-link', /*trans*/
+	        'Button': 'uk-button', /*trans*/
+	        'Button primary': 'uk-button uk-button-primary', /*trans*/
+	        'Button success': 'uk-button uk-button-success', /*trans*/
+	        'Button link': 'uk-button uk-button-link' /*trans*/
 	    },
 	    panel_style: {
-	        'Raw': '',
-	        'Panel box': 'uk-panel-box',
-	        'Panel box primary': 'uk-panel-box uk-panel-box-primary',
-	        'Panel box secondary': 'uk-panel-box uk-panel-box-secondary',
-	        'Panel space': 'uk-panel-space'
+	        'Raw': '', /*trans*/
+	        'Panel box': 'uk-panel-box', /*trans*/
+	        'Panel box primary': 'uk-panel-box uk-panel-box-primary', /*trans*/
+	        'Panel box secondary': 'uk-panel-box uk-panel-box-secondary', /*trans*/
+	        'Panel space': 'uk-panel-space' /*trans*/
 	    },
 	    position: {
 	        page:  {
-	            'Don\'t show': '',
-	            'Content top': 'content-top',
-	            'Sidebar': 'sidebar'
+	            'Don\'t show': '', /*trans*/
+	            'Content top': 'content-top', /*trans*/
+	            'Sidebar': 'sidebar' /*trans*/
 	        },
 	        nav:  {
-	            'Don\'t show': '',
-	            'Top': 'top',
-	            'Bottom': 'bottom',
-	            'Both': 'both'
+	            'Don\'t show': '', /*trans*/
+	            'Top': 'top', /*trans*/
+	            'Bottom': 'bottom', /*trans*/
+	            'Both': 'both' /*trans*/
 	        }
 	    }
 
@@ -684,14 +684,14 @@
 
 /***/ },
 
-/***/ 27:
+/***/ 21:
 /***/ function(module, exports) {
 
 	module.exports = "<div v-for=\"field in fields\" :class=\"{'uk-form-row': !field.raw}\">\r\n    <label v-if=\"field.label\" class=\"uk-form-label\">\r\n        <i v-if=\"field.tip\" class=\"uk-icon-info uk-icon-hover uk-margin-small-right\" data-uk-tooltip=\"{delay: 100}\" :title=\"field.tip\"></i>\r\n        {{ field.label | trans }}\r\n    </label>\r\n    <div v-if=\"!field.raw\" class=\"uk-form-controls\" :class=\"{'uk-form-controls-text': ['checkbox', 'radio'].indexOf(field.type)>-1}\">\r\n        <field :config=\"field\" :values.sync=\"values\"></field>\r\n    </div>\r\n    <field v-else :config=\"field\" :values.sync=\"values\"></field>\r\n</div>\r\n";
 
 /***/ },
 
-/***/ 28:
+/***/ 22:
 /***/ function(module, exports) {
 
 	module.exports = "<template v-for=\"field in fields\">\r\n    <field :config=\"field\" :values.sync=\"values\"></field>\r\n</template>\r\n";
