@@ -84,7 +84,7 @@ class PortfolioController
     }
 
     /**
-     * @Access("system: manage settings")
+     * @Access("system: access settings")
      */
     public function settingsAction()
     {
@@ -102,7 +102,7 @@ class PortfolioController
     }
 
 	/**
-	 * @Access("system: manage settings")
+	 * @Access("system: access settings")
 	 * @Request({"config": "array"}, csrf=true)
 	 */
 	public function configAction($config = [])
