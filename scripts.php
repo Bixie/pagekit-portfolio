@@ -19,7 +19,7 @@ return [
 				$table->addColumn('intro', 'text', ['notnull' => false]);
 				$table->addColumn('content', 'text', ['notnull' => false]);
 				$table->addColumn('client', 'string', ['length' => 255, 'notnull' => false]);
-				$table->addColumn('image', 'json_array', ['length' => 255, 'notnull' => false]);
+				$table->addColumn('image', 'json_array', ['notnull' => false]);
 				$table->addColumn('date', 'datetime');
 				$table->addColumn('tags', 'simple_array', ['notnull' => false]);
 				$table->addColumn('images', 'json_array', ['notnull' => false]);
