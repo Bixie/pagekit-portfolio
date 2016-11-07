@@ -89,7 +89,7 @@
 
 					<div class="uk-grid uk-grid-width-large-1-2 uk-form-horizontal" data-uk-grid-margin="">
 						<div>
-							<fields :config="$options.fields.portfolio" :model.sync="config" template="formrow"></fields>
+							<bixie-fields :config="$options.fields.portfolio" :values.sync="config"></bixie-fields>
 
 						</div>
 						<div>
@@ -100,16 +100,16 @@
 
 								<div class="uk-form-controls uk-form-controls-text">
 
-									<fields :config="$options.fields.teaser_show" :model.sync="config" template="raw"></fields>
+									<bixie-fields-raw :config="$options.fields.teaser_show" :values.sync="config"></bixie-fields-raw>
 
 								</div>
 							</div>
 
-							<fields :config="$options.fields.teaser_top" :model.sync="config" template="formrow"></fields>
+							<bixie-fields :config="$options.fields.teaser_top" :values.sync="config"></bixie-fields>
 
-							<fields :config="$options.fields.template[config.teaser.template]" :model.sync="config" template="formrow"></fields>
+							<bixie-fields :config="$options.fields.template[config.teaser.template]" :values.sync="config"></bixie-fields>
 
-							<fields :config="$options.fields.teaser_bottom" :model.sync="config" template="formrow"></fields>
+							<bixie-fields :config="$options.fields.teaser_bottom" :values.sync="config"></bixie-fields>
 
 							<div class="uk-form-row">
 								<label for="form-project_image_align" class="uk-form-label">{{ 'Thumbs size' | trans }}</label>
@@ -166,7 +166,7 @@
 							</div>
 						</div>
 
-						<fields :config="$options.fields.project" :model.sync="config" template="formrow"></fields>
+						<bixie-fields :config="$options.fields.project" :values.sync="config"></bixie-fields>
 
 					</div>
 
@@ -188,7 +188,7 @@
 
 					<div class="uk-form-horizontal">
 
-						<fields :config="$options.fields.general" :model.sync="config" template="formrow"></fields>
+						<bixie-fields :config="$options.fields.general" :values.sync="config"></bixie-fields>
 
 						<div class="uk-form-row">
 							<span class="uk-form-label">{{ 'Cache path writable' | trans }}</span>
