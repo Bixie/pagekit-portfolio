@@ -92,8 +92,8 @@
                     <span class="uk-form-label">{{ 'Options' | trans }}</span>
                     <div class="uk-form-controls uk-form-controls-text">
                         <label>
-                            <input type="checkbox" value="markdown" v-model="project.data.markdown"> {{ 'Enable Markdown' |
-                            trans }}</label>
+                            <input type="checkbox" value="markdown"
+                                   v-model="project.data.markdown"> {{ 'Enable Markdown' | trans }}</label>
                     </div>
                 </div>
             </div>

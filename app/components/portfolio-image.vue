@@ -31,8 +31,8 @@
                     <span class="uk-form-label">{{ 'Options' | trans }}</span>
                     <div class="uk-form-controls uk-form-controls-text">
                         <label>
-                            <input type="checkbox" value="show-teaser" v-model="image.show_teaser"> {{ 'Show in teaser' |
-                            trans }}</label>
+                            <input type="checkbox" value="show-teaser"
+                                   v-model="image.show_teaser"> {{ 'Show in teaser' | trans }}</label>
                     </div>
                 </div>
             </div>
