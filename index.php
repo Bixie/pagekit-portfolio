@@ -101,6 +101,7 @@ return [
 		'portfolio_text' => '<p>This is an overview of my latest projects.</p>',
 		'portfolio_image' => '',
 		'projects_per_page' => 20,
+        'project_ordering' => 'date|DESC',
 		'portfolio_image_align' => 'left',
 		'columns' => 1,
 		'columns_small' => 2,

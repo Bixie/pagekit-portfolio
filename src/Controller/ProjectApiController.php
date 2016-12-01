@@ -32,7 +32,7 @@ class ProjectApiController
 			$query->where(['status' => (int) $status]);
 		}
 
-		if (!preg_match('/^(date|title|status)\s(asc|desc)$/i', $order, $order)) {
+		if (!preg_match('/^(date|title|priority|status)\s(asc|desc)$/i', $order, $order)) {
             $order = [1 => 'date', 2 => 'desc'];
         }
 

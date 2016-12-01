@@ -58,6 +58,15 @@
                 </div>
 
                 <div class="uk-form-row">
+                    <label for="form-slug" class="uk-form-label">{{ 'Ordering' | trans }}</label>
+
+                    <div class="uk-form-controls">
+                        <input id="form-ordering" class="uk-form-width-small uk-text-center" type="number"
+                               v-model="project.priority" number>
+                    </div>
+                </div>
+
+                <div class="uk-form-row">
                     <label for="form-status" class="uk-form-label">{{ 'Status' | trans }}</label>
                     <div class="uk-form-controls">
                         <select id="form-status" class="uk-width-1-1" v-model="project.status">

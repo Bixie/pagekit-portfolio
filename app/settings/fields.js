@@ -3,6 +3,17 @@ var options = require('./options');
 
 module.exports = {
     portfolio: {
+        'project_ordering': {
+            type: 'select',
+            label: 'Project ordering',
+            options: {
+                'Newest first': 'date|DESC',
+                'Newest last': 'date|ASC',
+                'Title': 'title|ASC',
+                'Ordering': 'priority|ASC',
+            },
+            attrs: {'class': 'uk-form-width-medium'}
+        },
         'portfolio_image_align': {
             type: 'select',
             label: 'Image alignment',

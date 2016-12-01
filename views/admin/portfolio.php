@@ -45,6 +45,7 @@
 			<thead>
 			<tr>
 				<th class="pk-table-width-minimum"><input type="checkbox" v-check-all:selected.literal="input[name=id]"></th>
+				<th class="pk-table-width-100" v-order:priority="config.filter.order">{{ 'Ordering' | trans }}</th>
 				<th class="pk-table-min-width-200" v-order:title="config.filter.order">{{ 'Title' | trans }}</th>
 				<th class="pk-table-width-100 uk-text-center">
 					<input-filter :title="$trans('Status')" :value.sync="config.filter.status" :options="statusOptions"></input-filter>
@@ -57,7 +58,8 @@
 			</thead>
 			<tbody>
 			<tr class="check-item" v-for="project in projects" :class="{'uk-active': active(project)}">
-				<td><input type="checkbox" name="id" value="{{ project.id }}"></td>
+				<td><input type="checkbox" name="id" :value="project.id" number></td>
+				<td class="uk-text-center">{{ project.priority }}</td>
 				<td>
 					<a :href="$url.route('admin/portfolio/project/edit', { id: project.id })">{{ project.title }}</a>
 				</td>

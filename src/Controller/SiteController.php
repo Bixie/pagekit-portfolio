@@ -30,7 +30,11 @@ class SiteController
             App::abort(403, __('Insufficient User Rights.'));
         }
 
-        $query = Project::where(['date < ?', 'status = 1'], [new \DateTime])->orderBy('date', 'DESC');
+        if (!preg_match('/^(date|title|priority)\|(asc|desc)$/i', $this->portfolio->config('project_ordering', 'date|DESC'), $order)) {
+            $order = [1 => 'date', 2 => 'desc'];
+        }
+
+        $query = Project::where(['date < ?', 'status = 1'], [new \DateTime])->orderBy($order[1], $order[2]);
 
 		$portfolio_text = '';
 		if ($this->portfolio->config('portfolio_text')) {
