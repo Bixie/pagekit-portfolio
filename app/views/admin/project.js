@@ -49,9 +49,9 @@ module.exports = {
 
     components: {
 
-        portfoliobasic: require('../../components/portfolio-basic.vue'),
-        portfolioimages: require('../../components/portfolio-images.vue'),
-        portfoliodata: require('../../components/portfolio-data.vue'),
+        'portfolio-basic': require('../../components/portfolio-basic.vue'),
+        'portfolio-images': require('../../components/portfolio-images.vue'),
+        'portfolio-data': require('../../components/portfolio-data.vue'),
         'input-folder': require('../../components/input-folder.vue')
 
     }

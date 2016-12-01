@@ -32,13 +32,13 @@
 
 	<div class="uk-switcher uk-margin" v-el:content>
 		<div>
-			<portfoliobasic :project.sync="project" :config="config" :form="form"></portfoliobasic>
+			<portfolio-basic :project.sync="project" :config="config" :form="form"></portfolio-basic>
 		</div>
 		<div>
-			<portfolioimages :project.sync="project" :config="config" :form="form"></portfolioimages>
+			<portfolio-images :project.sync="project" :config="config" :form="form"></portfolio-images>
 		</div>
 		<div>
-			<portfoliodata :project.sync="project" :config="config" :form="form"></portfoliodata>
+			<portfolio-data :project.sync="project" :config="config" :form="form"></portfolio-data>
 		</div>
 	</div>
 
