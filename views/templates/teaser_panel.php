@@ -10,12 +10,21 @@
 
 		<?php if ($config['teaser']['show_image']) : ?>
 			<div class="uk-panel-teaser">
+                <?php if ($config['teaser']['link_image']) : ?>
+                    <a href="<?= $app->url('@portfolio/id', ['id' => $project->id]) ?>">
+                <?php endif; ?>
 				<img src="<?= $project->image['teaser']['src'] ?>" alt="<?= $project->image['teaser']['alt'] ?>">
+                <?php if ($config['teaser']['link_image']) : ?>
+                    </a>
+                <?php endif; ?>
 			</div>
 		<?php endif; ?>
 
 		<?php if ($config['teaser']['show_title']) : ?>
-			<h3 class="<?= $config['teaser']['title_size'] ?>"><a class="uk-link-reset <?= $config['teaser']['title_color'] ?>" href="<?= $app->url('@portfolio/id', ['id' => $project->id]) ?>"><?= $project->title ?></a></h3>
+			<h3 class="<?= $config['teaser']['title_size'] ?>">
+                <a class="uk-link-reset <?= $config['teaser']['title_color'] ?>"
+                   href="<?= $app->url('@portfolio/id', ['id' => $project->id]) ?>"><?= $project->title ?></a>
+            </h3>
 		<?php endif; ?>
 
 		<?php if ($config['teaser']['show_subtitle']) : ?>
@@ -54,7 +63,8 @@
 					if (empty($image['show_teaser'])) continue;?>
 					<li><a href="<?= $image['src'] ?>" title="<?= $image['title'] ?>"
 						   data-uk-lightbox="{group:'project-<?= $project->id ?>'}">
-							<img src="<?= $view->portfolioimage('url', [$image, $config['teaser']['thumbsize']]) ?>" alt="<?= $image['title'] ?>"></a></li>
+							<img src="<?= $view->portfolioimage('url', [$image, $config['teaser']['thumbsize']]) ?>"
+                                 alt="<?= $image['title'] ?>"></a></li>
 				<?php endforeach; ?>
 			</ul>
 		<?php endif; ?>

@@ -236,6 +236,10 @@ module.exports = {
             label: 'Read more text',
             attrs: {'class': 'uk-form-width-medium'}
         },
+        'teaser.link_image': {
+            label: 'Link image',
+            type: 'checkbox',
+        },
         'teaser.read_more_style': {
             type: 'select',
             label: 'Read more button style',
