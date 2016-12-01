@@ -48,7 +48,8 @@
 
             remove: function(e) {
                 e.stopPropagation();
-                this.folder = ''
+                this.folder = '';
+                this.$dispatch('folder-selected', this.folder);
             },
 
             hasSelection: function() {

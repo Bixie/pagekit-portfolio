@@ -90,6 +90,9 @@
 
         methods: {
             loadFolder: function (folder) {
+                if (!folder) {
+                    return this.$set('project.images', []);
+                }
                 this.imageApi.query({ folder: folder}).then(function (res) {
                     var data = res.data,
                         existing = this.project.images,
@@ -101,7 +104,6 @@
                         });
 
                     this.$set('project.images', images);
-
                 });
 
             }
