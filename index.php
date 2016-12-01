@@ -131,6 +131,7 @@ return [
 			'title_size' => 'uk-h3',
 			'title_color' => '',
 			'read_more' => 'Read more',
+			'link_image' => 'uk-button',
 			'read_more_style' => 'uk-button',
 			'readmore_align' => 'uk-text-center',
 			'thumbsize' => ['width' => 400, 'height' => ''],
