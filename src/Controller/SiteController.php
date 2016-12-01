@@ -75,6 +75,13 @@ class SiteController
 		$previous = Project::getPrevious($project);
 		$next = Project::getNext($project);
 
+        if ($breadcrumbs = App::module('bixie/breadcrumbs')) {
+            $breadcrumbs->addUrl([
+                'title' => $project->title,
+                'url' => '',
+            ]);
+        }
+
         return [
             '$view' => [
                 'title' => __($project->title),
