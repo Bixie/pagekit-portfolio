@@ -54,7 +54,11 @@ return [
 
 	],
 
-	'menu' => [
+    'widgets' => [
+        'widgets/portfolio-projects.php'
+    ],
+
+    'menu' => [
 
 		'portfolio' => [
 			'label' => 'Portfolio',

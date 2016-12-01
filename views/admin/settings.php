@@ -91,6 +91,8 @@
 						<div>
 							<bixie-fields :config="$options.fields.portfolio" :values.sync="config"></bixie-fields>
 
+							<bixie-fields :config="$options.fields.teaser_columns" :values.sync="config"></bixie-fields>
+
 						</div>
 						<div>
 

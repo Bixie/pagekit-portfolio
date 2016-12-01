@@ -68,6 +68,8 @@ module.exports = {
             options: options.gutter,
             attrs: {'class': 'uk-form-width-small'}
         },
+    },
+    teaser_columns: {
         'title2': {
             raw: true,
             type: 'title',

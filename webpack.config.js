@@ -2,6 +2,7 @@ module.exports = [
 
     {
         entry: {
+            "widget-portfolio-projects": "./app/components/widget-portfolio-projects.vue",
             /*frontpage views*/
             "portfolio": "./app/views/portfolio.js",
             /*admin views*/
