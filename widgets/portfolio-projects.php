@@ -22,7 +22,7 @@ return [
 
         switch ($widget->get('content_selection', 'random')) {
             case 'random':
-                $query->orderBy('RAND()');
+                $query->orderBy('RANDOM()');
                 break;
             case 'latest':
                 $query->orderBy('date', 'desc');
